@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CustomTeller: class {
+protocol CustomTeller: AnyObject {
     func signInButtonClicked(_: UIButton)
 }
 

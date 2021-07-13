@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol EnterpriseDetailProtocol: class {
+protocol EnterpriseDetailProtocol: AnyObject {
     func showEnterpriseDetail(_ enterprise: Enterprise)
 }
 

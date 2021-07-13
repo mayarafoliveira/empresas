@@ -37,4 +37,3 @@ struct EnterpriseType: Decodable {
     var id: Int
     var enterprise_type_name: String
 }
-

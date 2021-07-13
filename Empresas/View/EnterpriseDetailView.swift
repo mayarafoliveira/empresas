@@ -91,4 +91,3 @@ extension EnterpriseDetailView {
         enterpriseDescription.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: 20).isActive = true
     }
 }
-

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BFE6893BAD316DCCCF8BFDE /* Pods_Empresas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842818898E3BE931E855B58C /* Pods_Empresas.framework */; };
+		7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */; };
 		7D56B4B9269DB35900FACD8E /* EnterpriseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */; };
 		7D56B4BB269DB38800FACD8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4BA269DB38800FACD8E /* LoginViewController.swift */; };
 		7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailViewController.swift; sourceTree = "<group>"; };
 		7D56B4BA269DB38800FACD8E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				7D56B4C9269DB4DD00FACD8E /* ColorExtension.swift */,
 				7D56B4CB269DB50500FACD8E /* ImageExtension.swift */,
 				7D56B4CD269DB62F00FACD8E /* ViewExtension.swift */,
+				7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */,
 			);
 			path = "Supporting Extensions";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				7D56B4C0269DB40500FACD8E /* Login.swift in Sources */,
 				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
 				7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */,
+				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,
 				7D56B4D2269DB67E00FACD8E /* LoginView.swift in Sources */,
 				7D5775CE269D45C300C1E79D /* ViewController.swift in Sources */,
 				7D5775CA269D45C300C1E79D /* AppDelegate.swift in Sources */,

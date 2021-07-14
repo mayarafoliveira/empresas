@@ -13,7 +13,6 @@ class LoginViewController: UIViewController, CustomTeller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func loadView() {

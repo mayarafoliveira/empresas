@@ -16,16 +16,16 @@ extension UITextField {
                                 showPasswordButton: UIButton? = nil) {
         guard let view = self.superview else { return }
         
-        titleLabel.textColor = .grayText
         warningLabel?.textColor = .clear
         errorImage?.isHidden = true
         showPasswordButton?.isEnabled = true
         showPasswordButton?.isHidden = false
+        view.layer.borderColor = UIColor.graySecondary.cgColor
         
-        if self.hasText || self.isEditing {
-            view.layer.borderColor = UIColor.graySecondary.cgColor
+        if self.isEditing {
+            titleLabel.textColor = .pinkMain
         } else {
-            view.layer.borderColor = UIColor.graySecondary.cgColor
+            titleLabel.textColor = .grayText
         }
     }
     

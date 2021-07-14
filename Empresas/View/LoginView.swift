@@ -391,23 +391,25 @@ extension LoginView {
 extension LoginView: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == emailTextField {
-            emailLabel.textColor = .pinkMain
-            emailView.layer.borderColor = UIColor.graySecondary.cgColor
-            passwordView.layer.borderColor = UIColor.graySecondary.cgColor
-            
-        } else {
-            passwordLabel.textColor = .pinkMain
-            emailView.layer.borderColor = UIColor.graySecondary.cgColor
-            passwordView.layer.borderColor = UIColor.graySecondary.cgColor
+        
+        switch textField {
+        case emailTextField:
+            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
+        default:
+            textField.setBorderColorIfNeeded(titleLabel: passwordLabel, errorImage: passwordErrorImage, warningLabel: passwordWarningLabel)
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == emailTextField {
-            emailLabel.textColor = .grayText
-        } else {
-            passwordLabel.textColor = .grayText
+
+        switch textField {
+        case emailTextField:
+            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
+        default:
+            textField.setBorderColorIfNeeded(titleLabel: passwordLabel,
+                                             errorImage: passwordErrorImage,
+                                             warningLabel: passwordWarningLabel,
+                                             showPasswordButton: showPasswordButton)
         }
     }
     

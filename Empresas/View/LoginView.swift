@@ -14,6 +14,7 @@ protocol CustomTeller: AnyObject {
 class LoginView: UIView {
     
     weak var delegate: CustomTeller?
+    private let userDefaults = UserDefaults()
     
     // Header
     private lazy var backgroundImage: UIImageView = {
@@ -236,6 +237,7 @@ class LoginView: UIView {
         networking.login(order: values) { success, error  in
       
             if success {
+                self.userDefaults.setValue(email, forKey: "email")
                 self.delegate?.signInButtonClicked(sender)
                 
             } else {

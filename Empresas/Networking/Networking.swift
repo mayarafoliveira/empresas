@@ -43,12 +43,12 @@ class Networking {
                 let client = HeaderKeys.client.rawValue
                 let uid = HeaderKeys.uid.rawValue
                 
-                let headerDictionary = [accessToken: headers[accessToken] as Any,
-                                        client: headers[client] as Any,
-                                        uid: headers[uid] as Any]
-              
-                let userDefaults = UserDefaults.standard
-                userDefaults.setValuesForKeys(headerDictionary)
+                var userAccess = UserAccess()
+                userAccess.accessToken = headers[accessToken] as? String
+                userAccess.client = headers[client] as? String
+                userAccess.uid = headers[uid] as? String
+                
+                AppStorage.shared.authorization = userAccess
             }
             
             if let data = data {

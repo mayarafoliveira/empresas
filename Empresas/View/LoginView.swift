@@ -233,13 +233,11 @@ class LoginView: UIView {
         else { return }
         
         let values = Login(email: email, password: password)
-        
+  
         networking.login(order: values) { success, error  in
       
             if success {
-                self.userDefaults.setValue(email, forKey: "email")
                 self.delegate?.signInButtonClicked(sender)
-                
             } else {
                 if let error = error { print(error.localizedDescription) }
                 

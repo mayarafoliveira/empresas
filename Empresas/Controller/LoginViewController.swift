@@ -26,13 +26,10 @@ class LoginViewController: UIViewController, CustomTeller {
     }
     
     func signInButtonClicked(_: UIButton) {
-
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let searchViewController = storyBoard
-                .instantiateViewController(withIdentifier: "SearchViewController")
-                as? SearchViewController else { return }
-        searchViewController.modalPresentationStyle = .fullScreen
         
-        self.present(searchViewController, animated: true, completion: nil)
+        let search = UINavigationController(rootViewController: SearchViewController())
+        search.modalPresentationStyle = .fullScreen
+        self.present(search, animated: true, completion: nil)
+
     }
 }

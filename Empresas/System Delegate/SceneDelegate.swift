@@ -17,8 +17,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
+        
+        if AppStorage.shared.authorization?.accessToken == nil {
+            window?.rootViewController = LoginViewController()
+        } else {
+            let searchViewController = UINavigationController(rootViewController: SearchViewController())
+            searchViewController.modalPresentationStyle = .fullScreen
+            window?.rootViewController = searchViewController
+        }
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -13,7 +13,7 @@ class SearchViewController: UIViewController, EnterpriseDetailProtocol {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func loadView() {
@@ -28,9 +28,9 @@ class SearchViewController: UIViewController, EnterpriseDetailProtocol {
     
     func showEnterpriseDetail(_ enterprise: Enterprise) {
         self.enterprise = enterprise
-        performSegue(withIdentifier: "EnterpriseDetailView", sender: enterprise)
-
+        self.navigationController?.pushViewController(EnterpriseDetailViewController(), animated: true)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EnterpriseDetailView" {
             

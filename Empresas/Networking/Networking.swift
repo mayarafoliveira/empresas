@@ -67,12 +67,11 @@ class Networking {
         let client = HeaderKeys.client.rawValue
         let uid = HeaderKeys.uid.rawValue
         
-        guard let userAccessToken =
-            UserDefaults.standard.string(forKey: accessToken),
-            let userClient = UserDefaults.standard.string(forKey: client),
-            let userUid = UserDefaults.standard.string(forKey: uid) else {
-            return
-        }
+        guard let userAccess = AppStorage.shared.authorization else { return }
+        guard let userAccessToken = userAccess.accessToken,
+              let userClient = userAccess.client,
+              let userUid = userAccess.uid
+              else { return }
 
         let link = "https://empresas.ioasys.com.br/api/v1/enterprises?name=" + text.enterpriseSearched
         

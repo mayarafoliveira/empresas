@@ -9,8 +9,6 @@ import UIKit
 
 class SearchViewController: UIViewController, EnterpriseDetailProtocol {
     
-    private var enterprise: Enterprise?
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -27,29 +25,7 @@ class SearchViewController: UIViewController, EnterpriseDetailProtocol {
     }
     
     func showEnterpriseDetail(_ enterprise: Enterprise) {
-        self.enterprise = enterprise
-        self.navigationController?.pushViewController(EnterpriseDetailViewController(), animated: true)
+        self.navigationController?.pushViewController(EnterpriseDetailViewController(enterprise: enterprise), animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EnterpriseDetailView" {
-            
-            let destinationController = segue.destination as? EnterpriseDetailViewController
-            let viewController = destinationController?.view as? EnterpriseDetailView
-            
-            // Enterprise name
-            guard let name = self.enterprise?.enterprise_name else { return }
-            viewController?.enterpriseName.text = name
-            
-            // Background image
-            let host = "https://empresas.ioasys.com.br"
-            guard let photo = self.enterprise?.photo else { return }
-            guard let url = URL(string: host + photo) else { return }
-            viewController?.backgroundImage.load(url: url)
-            
-            // Enterprise description
-            guard let description = self.enterprise?.description else { return }
-            viewController?.enterpriseDescription.text = description
-        }
-    }
+
 }

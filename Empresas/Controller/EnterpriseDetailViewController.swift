@@ -9,17 +9,23 @@ import UIKit
 
 class EnterpriseDetailViewController: UIViewController {
     
+    private var enterprise: Enterprise?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
     override func loadView() {
-        view = EnterpriseDetailView()
+        view = EnterpriseDetailView(enterprise: self.enterprise)
+    }
+
+    init(enterprise: Enterprise) {
+        super.init(nibName: nil, bundle: nil)
+        self.enterprise = enterprise
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

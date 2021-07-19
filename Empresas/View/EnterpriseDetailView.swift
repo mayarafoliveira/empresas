@@ -9,8 +9,11 @@ import UIKit
 
 class EnterpriseDetailView: UIView {
     
+    private var enterprise: Enterprise?
+    
     lazy var enterpriseName: UILabel = {
         let enterpriseName = UILabel()
+        enterpriseName.text = enterprise?.enterprise_name
         enterpriseName.textAlignment = .center
         enterpriseName.textColor = .black
         enterpriseName.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -27,6 +30,7 @@ class EnterpriseDetailView: UIView {
     
     lazy var enterpriseDescription: UILabel = {
         let enterpriseDescription = UILabel()
+        enterpriseDescription.text = enterprise?.description
         enterpriseDescription.numberOfLines = 0
         enterpriseDescription.textAlignment = .left
         enterpriseDescription.textColor = .black
@@ -34,18 +38,27 @@ class EnterpriseDetailView: UIView {
         enterpriseDescription.translatesAutoresizingMaskIntoConstraints = false
         return enterpriseDescription
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
     
+    init(enterprise: Enterprise?) {
+        super.init(frame: .zero)
+        self.enterprise = enterprise
         self.setBackgroundColor(to: .white)
+        
         addSubviews()
         setupConstraints()
-        
+        updateBackgroundImage()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Methods
+    func updateBackgroundImage() {
+        let host = "https://empresas.ioasys.com.br"
+        guard let photo = self.enterprise?.photo else { return }
+        guard let url = URL(string: host + photo) else { return }
+        backgroundImage.load(url: url)
     }
 }
 
@@ -68,7 +81,7 @@ extension EnterpriseDetailView {
     func setupEnterpriseNameConstraints() {
         enterpriseName.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         enterpriseName.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        enterpriseName.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        enterpriseName.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
         enterpriseName.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     

@@ -72,7 +72,7 @@ class Networking {
               let userClient = userAccess.client,
               let userUid = userAccess.uid
               else { return }
-
+        
         let link = "https://empresas.ioasys.com.br/api/v1/enterprises?name=" + text.enterpriseSearched
         
         guard let url = URL(string: link) else { return }

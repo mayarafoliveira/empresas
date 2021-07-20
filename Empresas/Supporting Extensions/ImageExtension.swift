@@ -9,6 +9,10 @@ import UIKit
 
 extension UIImage {
     
+    static var arrow: UIImage {
+        return UIImage(named: "arrow") ?? UIImage()
+    }
+    
     static var backgroundHome: UIImage {
         return UIImage(named: "background_home") ?? UIImage()
     }

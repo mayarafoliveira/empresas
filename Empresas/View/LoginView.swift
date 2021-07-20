@@ -74,17 +74,14 @@ class LoginView: UIView {
     
     private(set) lazy var emailView: UIView = {
         let emailView = UIView()
-        emailView.backgroundColor = .white
+        emailView.backgroundColor = .graySecondary
         emailView.layer.cornerRadius = 4
-        emailView.layer.borderWidth = 1
-        emailView.layer.borderColor = UIColor.graySecondary.cgColor
         emailView.translatesAutoresizingMaskIntoConstraints = false
         return emailView
     }()
     
     private(set) lazy var emailTextField: UITextField = {
         let emailTextField = UITextField()
-        emailTextField.placeholder = "Insira seu e-mail"
         emailTextField.font = UIFont.systemFont(ofSize: 14)
         emailTextField.borderStyle = .none
         emailTextField.backgroundColor = .clear
@@ -127,17 +124,14 @@ class LoginView: UIView {
     
     private(set) lazy var passwordView: UIView = {
         let passwordView = UIView()
-        passwordView.backgroundColor = .white
+        passwordView.backgroundColor = .graySecondary
         passwordView.layer.cornerRadius = 4
-        passwordView.layer.borderWidth = 1
-        passwordView.layer.borderColor = UIColor.graySecondary.cgColor
         passwordView.translatesAutoresizingMaskIntoConstraints = false
         return passwordView
     }()
     
     private(set) lazy var passwordTextField: UITextField = {
         let passwordTextField = UITextField()
-        passwordTextField.placeholder = "Insira sua senha"
         passwordTextField.font = UIFont.systemFont(ofSize: 14)
         passwordTextField.borderStyle = .none
         passwordTextField.backgroundColor = .clear
@@ -327,7 +321,7 @@ extension LoginView {
     }
     
     func setupEmailViewConstraints() {
-        emailView.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        emailView.heightAnchor.constraint(equalToConstant: 48).isActive = true
     }
  
     func setupEmailErrorImageConstraints() {
@@ -349,7 +343,7 @@ extension LoginView {
     }
     
     func setupPasswordViewConstraints() {
-        passwordView.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        passwordView.heightAnchor.constraint(equalToConstant: 48).isActive = true
     }
     
     func setupPasswordErrorImageConstraints() {

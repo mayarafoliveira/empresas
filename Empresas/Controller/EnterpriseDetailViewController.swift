@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EnterpriseDetailViewController: UIViewController {
+class EnterpriseDetailViewController: UIViewController, CustomTellerBack {
     
     private var enterprise: Enterprise?
     
@@ -17,7 +17,13 @@ class EnterpriseDetailViewController: UIViewController {
     }
     
     override func loadView() {
-        view = EnterpriseDetailView(enterprise: self.enterprise)
+        let enterpriseView = EnterpriseDetailView(enterprise: self.enterprise)
+        enterpriseView.delegate = self
+        view = enterpriseView
+    }
+    
+    func backButtonClicked(_: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     init(enterprise: Enterprise) {

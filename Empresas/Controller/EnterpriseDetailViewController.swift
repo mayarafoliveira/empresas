@@ -7,19 +7,31 @@
 
 import UIKit
 
-class EnterpriseDetailViewController: UIViewController {
+class EnterpriseDetailViewController: UIViewController, CustomTellerBack {
+    
+    private var enterprise: Enterprise?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
     override func loadView() {
-        view = EnterpriseDetailView()
+        let enterpriseView = EnterpriseDetailView(enterprise: self.enterprise)
+        enterpriseView.delegate = self
+        view = enterpriseView
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    func backButtonClicked(_: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    init(enterprise: Enterprise) {
+        super.init(nibName: nil, bundle: nil)
+        self.enterprise = enterprise
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

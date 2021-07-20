@@ -43,12 +43,12 @@ class Networking {
                 let client = HeaderKeys.client.rawValue
                 let uid = HeaderKeys.uid.rawValue
                 
-                let headerDictionary = [accessToken: headers[accessToken] as Any,
-                                        client: headers[client] as Any,
-                                        uid: headers[uid] as Any]
-              
-                let userDefaults = UserDefaults.standard
-                userDefaults.setValuesForKeys(headerDictionary)
+                var userAccess = UserAccess()
+                userAccess.accessToken = headers[accessToken] as? String
+                userAccess.client = headers[client] as? String
+                userAccess.uid = headers[uid] as? String
+                
+                AppStorage.shared.authorization = userAccess
             }
             
             if let data = data {
@@ -67,13 +67,12 @@ class Networking {
         let client = HeaderKeys.client.rawValue
         let uid = HeaderKeys.uid.rawValue
         
-        guard let userAccessToken =
-            UserDefaults.standard.string(forKey: accessToken),
-            let userClient = UserDefaults.standard.string(forKey: client),
-            let userUid = UserDefaults.standard.string(forKey: uid) else {
-            return
-        }
-
+        guard let userAccess = AppStorage.shared.authorization else { return }
+        guard let userAccessToken = userAccess.accessToken,
+              let userClient = userAccess.client,
+              let userUid = userAccess.uid
+              else { return }
+        
         let link = "https://empresas.ioasys.com.br/api/v1/enterprises?name=" + text.enterpriseSearched
         
         guard let url = URL(string: link) else { return }

@@ -7,14 +7,16 @@
 
 import UIKit
 
-protocol CustomTeller: AnyObject {
-    func signInButtonClicked(_: UIButton)
+protocol LoginViewDelegate: AnyObject {
+    func signIn(email: String, password: String)
+    func validateEmail(email: String)
+    func validatePassword(password: String)
 }
 
 class LoginView: UIView {
     
-    weak var delegate: CustomTeller?
-    private let userDefaults = UserDefaults()
+    weak var delegate: LoginViewDelegate?
+    // var pra saber se o botao ta ativo ou não
     
     // Header
     private lazy var backgroundImage: UIImageView = {
@@ -220,33 +222,11 @@ class LoginView: UIView {
     
     @objc func signInAction(sender: UIButton) {
        
-        let networking = Networking()
-        
         guard let email = emailTextField.text,
               let password = passwordTextField.text
         else { return }
-        
-        let values = Login(email: email, password: password)
-  
-        networking.login(order: values) { success, error  in
-      
-            if success {
-                self.delegate?.signInButtonClicked(sender)
-            } else {
-                if let error = error { print(error.localizedDescription) }
-                
-                self.emailTextField.invalidField(
-                    titleLabel: self.emailLabel,
-                    errorImage: self.emailErrorImage,
-                    warningLabel: self.emailWarningLabel)
-                
-                self.passwordTextField.invalidField(
-                    titleLabel: self.passwordLabel,
-                    errorImage: self.passwordErrorImage,
-                    warningLabel: self.passwordWarningLabel,
-                    showPasswordButton: self.showPasswordButton)
-            }
-        }
+
+        self.delegate?.signIn(email: email, password: password)
     }
 }
 
@@ -398,12 +378,14 @@ extension LoginView: UITextFieldDelegate {
 
         switch textField {
         case emailTextField:
-            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
+//            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
+            delegate?.validateEmail(email: textField.text ?? "")
         default:
-            textField.setBorderColorIfNeeded(titleLabel: passwordLabel,
-                                             errorImage: passwordErrorImage,
-                                             warningLabel: passwordWarningLabel,
-                                             showPasswordButton: showPasswordButton)
+//            textField.setBorderColorIfNeeded(titleLabel: passwordLabel,
+//                                             errorImage: passwordErrorImage,
+//                                             warningLabel: passwordWarningLabel,
+//                                             showPasswordButton: showPasswordButton)
+            delegate?.validatePassword(password: textField.text ?? "")
         }
     }
     
@@ -411,6 +393,8 @@ extension LoginView: UITextFieldDelegate {
         
         guard let emailText = emailTextField.text else { return }
         guard let passwordText = passwordTextField.text else { return }
+        
+        // validate()
         
         if emailText.isEmpty || passwordText.isEmpty {
             signInButton.isEnabled = false
@@ -421,4 +405,14 @@ extension LoginView: UITextFieldDelegate {
         }
     }
     
+}
+
+extension LoginView {
+    func isEmailValid(_ isValid: Bool) {
+        // mudar a cor - vermelho etc
+    }
+    
+    func isPasswordValid(_ isValid: Bool) {
+        // mudar a cor - vermelho etc
+    }
 }

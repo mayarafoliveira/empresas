@@ -7,16 +7,26 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, CustomTeller {
+class LoginViewController: UIViewController {
     
-    private lazy var networking = Networking()
+    private let presenter: LoginPresenting
+    private lazy var loginView = LoginView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    init(presenter: LoginPresenting) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        presenter.attach(view: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
-        let loginView = LoginView()
         loginView.delegate = self
         view = loginView
     }
@@ -25,11 +35,38 @@ class LoginViewController: UIViewController, CustomTeller {
         return.lightContent
     }
     
-    func signInButtonClicked(_: UIButton) {
-        
-        let search = UINavigationController(rootViewController: SearchViewController())
-        search.modalPresentationStyle = .fullScreen
-        self.present(search, animated: true, completion: nil)
+    // MARK: Actions
+    
+    @objc func showPasswordAction(sender: UIButton) {
+//        presenter?.showPassword(sender: sender, textField: passwordTextField)
+    }
+}
 
+extension LoginViewController: LoginViewable {
+    func isEmailValid(_ isValid: Bool) {
+        loginView.isEmailValid(isValid)
+    }
+    
+    func isPasswordValid(_ isValid: Bool) {
+        loginView.isPasswordValid(isValid)
+    }
+    
+    func showError(error: Error) {
+        
+    }
+    
+}
+
+extension LoginViewController: LoginViewDelegate {
+    func validateEmail(email: String) {
+        presenter.validateEmail(email: email)
+    }
+    
+    func validatePassword(password: String) {
+        presenter.validatePassword(password: password)
+    }
+    
+    func signIn(email: String, password: String) {
+        self.presenter.signIn(email: email, password: password)
     }
 }

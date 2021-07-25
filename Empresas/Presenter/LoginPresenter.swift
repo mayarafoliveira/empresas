@@ -8,7 +8,6 @@
 import UIKit
 
 protocol LoginPresenting: AnyObject {
-    func showPassword(sender: UIButton, textField: UITextField)
     func signIn(email: String, password: String)
     func attach(view: LoginViewable)
     func validateEmail(email: String)
@@ -38,24 +37,13 @@ class LoginPresenter: LoginPresenting {
     }
     
     func validateEmail(email: String) {
-        // fazer verificação
-        view?.isEmailValid(true)
+        let isValid = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: email)
+        view?.isEmailValid(isValid)
     }
     
     func validatePassword(password: String) {
-        // fazer verificação
-        view?.isPasswordValid(true)
-    }
-    
-    func showPassword(sender: UIButton, textField: UITextField) {
-        switch sender.backgroundColor {
-        case UIColor.clear:
-            sender.backgroundColor = .pinkMain
-            textField.isSecureTextEntry = false
-        default:
-            sender.backgroundColor = .clear
-            textField.isSecureTextEntry = true
-        }
+        let isValid = password.count >= 8
+        view?.isPasswordValid(isValid)
     }
     
     func signIn(email: String, password: String) {
@@ -70,7 +58,8 @@ class LoginPresenter: LoginPresenting {
                 sceneDelegate?.showSearch()
               
             } else {
-                if let error = error { print(error.localizedDescription) }
+                guard let error = error else { return }
+                self?.view?.showError(error: error)
                 self?.view?.isEmailValid(false)
                 self?.view?.isPasswordValid(false)
             }

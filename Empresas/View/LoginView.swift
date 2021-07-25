@@ -16,7 +16,8 @@ protocol LoginViewDelegate: AnyObject {
 class LoginView: UIView {
     
     weak var delegate: LoginViewDelegate?
-    // var pra saber se o botao ta ativo ou não
+    private var emailIsEnabled: Bool = false
+    private var passwordIsEnabled: Bool = false
     
     // Header
     private lazy var backgroundImage: UIImageView = {
@@ -378,13 +379,8 @@ extension LoginView: UITextFieldDelegate {
 
         switch textField {
         case emailTextField:
-//            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
             delegate?.validateEmail(email: textField.text ?? "")
         default:
-//            textField.setBorderColorIfNeeded(titleLabel: passwordLabel,
-//                                             errorImage: passwordErrorImage,
-//                                             warningLabel: passwordWarningLabel,
-//                                             showPasswordButton: showPasswordButton)
             delegate?.validatePassword(password: textField.text ?? "")
         }
     }
@@ -395,24 +391,39 @@ extension LoginView: UITextFieldDelegate {
         guard let passwordText = passwordTextField.text else { return }
         
         // validate()
-        
-        if emailText.isEmpty || passwordText.isEmpty {
-            signInButton.isEnabled = false
-            signInButton.backgroundColor = .graySecondary
-        } else {
+        if emailIsEnabled && passwordIsEnabled {
             signInButton.isEnabled = true
             signInButton.backgroundColor = .pinkMain
+        } else {
+            signInButton.isEnabled = false
+            signInButton.backgroundColor = .graySecondary
         }
     }
-    
 }
 
 extension LoginView {
     func isEmailValid(_ isValid: Bool) {
-        // mudar a cor - vermelho etc
+        emailIsEnabled = isValid
+        
+        if isValid {
+            emailTextField.setBorderColorIfNeeded(titleLabel: emailLabel)
+        } else {
+            emailTextField.invalidField(titleLabel: emailLabel,
+                                        errorImage: emailErrorImage,
+                                        warningLabel: emailWarningLabel)
+        }
     }
     
     func isPasswordValid(_ isValid: Bool) {
-        // mudar a cor - vermelho etc
+        passwordIsEnabled = isValid
+        
+        if isValid {
+            passwordTextField.setBorderColorIfNeeded(titleLabel: passwordLabel)
+        } else {
+            passwordTextField.invalidField(titleLabel: passwordLabel,
+                                           errorImage: passwordErrorImage,
+                                           warningLabel: passwordWarningLabel,
+                                           showPasswordButton: showPasswordButton)
+        }
     }
 }

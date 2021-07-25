@@ -16,6 +16,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
     init(presenter: LoginPresenting) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -34,12 +42,6 @@ class LoginViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return.lightContent
     }
-    
-    // MARK: Actions
-    
-    @objc func showPasswordAction(sender: UIButton) {
-//        presenter?.showPassword(sender: sender, textField: passwordTextField)
-    }
 }
 
 extension LoginViewController: LoginViewable {
@@ -52,7 +54,9 @@ extension LoginViewController: LoginViewable {
     }
     
     func showError(error: Error) {
-        
+        let alert = UIAlertController(title: "Oops", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Tentar novamente", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

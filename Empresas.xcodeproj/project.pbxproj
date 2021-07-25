@@ -125,10 +125,10 @@
 		7D56B4B7269D4D2900FACD8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */,
 				7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */,
 				7D56B4BA269DB38800FACD8E /* LoginViewController.swift */,
 				7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */,
-				7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

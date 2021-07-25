@@ -7,23 +7,19 @@
 
 import UIKit
 
-class EnterpriseDetailViewController: UIViewController, CustomTellerBack {
+class EnterpriseDetailViewController: BaseViewController, CustomTellerBack {
     
     private var enterprise: Enterprise?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupCustomNavigation()
     }
     
     override func loadView() {
         let enterpriseView = EnterpriseDetailView(enterprise: self.enterprise)
         enterpriseView.delegate = self
         view = enterpriseView
-    }
-    
-    func backButtonClicked(_: UIButton) {
-        self.navigationController?.popViewController(animated: true)
     }
 
     init(enterprise: Enterprise) {

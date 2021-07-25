@@ -7,11 +7,11 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, EnterpriseDetailProtocol {
+class SearchViewController: BaseViewController, EnterpriseDetailProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        setupCustomNavigation()
     }
     
     override func loadView() {

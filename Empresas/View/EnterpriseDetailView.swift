@@ -8,24 +8,13 @@
 import UIKit
 
 protocol CustomTellerBack: AnyObject {
-    func backButtonClicked(_: UIButton)
+
 }
 
 class EnterpriseDetailView: UIView {
     
     private var enterprise: Enterprise?
     weak var delegate: CustomTellerBack?
-    
-    private lazy var backButton: UIButton = {
-        let backButton = UIButton()
-        backButton.backgroundColor = .graySecondary
-        backButton.layer.cornerRadius = 8
-        backButton.imageView?.contentMode = .scaleAspectFit
-        backButton.setImage(.arrow, for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        return backButton
-    }()
     
     lazy var enterpriseName: UILabel = {
         let enterpriseName = UILabel()
@@ -70,10 +59,6 @@ class EnterpriseDetailView: UIView {
     }
     
     // MARK: Methods
-    @objc func backAction(sender: UIButton) {
-        self.delegate?.backButtonClicked(sender)
-    }
-    
     func updateBackgroundImage() {
         let host = "https://empresas.ioasys.com.br"
         guard let photo = self.enterprise?.photo else { return }
@@ -86,7 +71,6 @@ extension EnterpriseDetailView {
     
     // MARK: Subviews
     func addSubviews() {
-        self.addSubview(backButton)
         self.addSubview(enterpriseName)
         self.addSubview(backgroundImage)
         self.addSubview(enterpriseDescription)
@@ -94,17 +78,9 @@ extension EnterpriseDetailView {
     
     // MARK: Setup Constraints
     func setupConstraints() {
-        setupBackButtonConstraints()
         setupEnterpriseNameConstraints()
         setupBackgroundImageConstraints()
         setupEnterpriseDescriptionConstraints()
-    }
-    
-    func setupBackButtonConstraints() {
-        backButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: self.notchHeight + 40).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        backButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     func setupEnterpriseNameConstraints() {

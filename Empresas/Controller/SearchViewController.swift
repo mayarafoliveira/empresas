@@ -7,25 +7,44 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController, EnterpriseDetailProtocol {
+class SearchViewController: BaseViewController {
+    
+    private let presenter: SearchPresenting
+    private lazy var searchView = SearchView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomNavigation()
     }
     
+    init(presenter: SearchPresenting) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        presenter.attach(view: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
-        let searchView = SearchView()
         searchView.delegate = self
         view = searchView
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return.lightContent
+}
+
+extension SearchViewController: SearchViewable {    
+    func updateList(_ enterprises: [Enterprise]) {
+        searchView.updateList(enterprises)
+    }
+}
+
+extension SearchViewController: SearchViewDelegate {
+    func searchFor(enterprise: String) {
+        self.presenter.searchFor(enterprise)
     }
     
     func showEnterpriseDetail(_ enterprise: Enterprise) {
-        self.navigationController?.pushViewController(EnterpriseDetailViewController(enterprise: enterprise), animated: true)
+        self.presenter.showEnterpriseDetail(enterprise)
     }
-
 }

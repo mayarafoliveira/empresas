@@ -28,16 +28,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func showLogin() {
-        let nav = UINavigationController()
-        let presenter = LoginPresenter(navigationController: nav, networking: Networking(), appStorage: .shared)
+        let navigation = UINavigationController()
+        let presenter = LoginPresenter(navigationController: navigation, networking: Networking(), appStorage: .shared)
         let loginViewController = LoginViewController(presenter: presenter)
-        nav.setViewControllers([loginViewController], animated: false)
-        window?.rootViewController = nav
+        navigation.setViewControllers([loginViewController], animated: false)
+        window?.rootViewController = navigation
     }
     
     func showSearch() {
-        let searchViewController = UINavigationController(rootViewController: SearchViewController())
-        searchViewController.modalPresentationStyle = .fullScreen
-        window?.rootViewController = searchViewController
+        let navigation = UINavigationController()
+        let presenter = SearchPresenter(navigationController: navigation, networking: Networking(), appStorage: .shared)
+        let searchViewController = SearchViewController(presenter: presenter)
+        navigation.setViewControllers([searchViewController], animated: true)
+        window?.rootViewController = navigation
+        
+//        let searchViewController = UINavigationController(rootViewController: SearchViewController()
+//        searchViewController.modalPresentationStyle = .fullScreen
+//        window?.rootViewController = searchViewController
     }
 }

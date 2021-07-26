@@ -7,20 +7,49 @@
 
 import UIKit
 
-protocol SearchPresenterDelegate: AnyObject {
-    
+protocol SearchPresenting: AnyObject {
+    func searchFor(_ enterprise: String)
+    func attach(view: SearchViewable)
+    func showEnterpriseDetail(_ enterprise: Enterprise)
 }
 
-typealias PresenterDelegateSearch = SearchPresenterDelegate & UIViewController
+protocol SearchViewable: AnyObject {
+    func updateList(_ enterprises: [Enterprise])
+}
 
-class SearchPresenter {
-    weak var delegate: PresenterDelegateSearch?
+class SearchPresenter: SearchPresenting {
+    weak var view: SearchViewable?
+    weak var navigationController: UINavigationController?
+    private let networking: Networking
+    private let appStorage: AppStorage
     
-    init() {
-        
+    init(navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
+        self.navigationController = navigationController
+        self.networking = networking
+        self.appStorage = appStorage
     }
     
-    func setViewDelegate(delegate: PresenterDelegateSearch) {
-        self.delegate = delegate
+    func attach(view: SearchViewable) {
+        self.view = view
     }
+    
+    func searchFor(_ enterprise: String) {
+        networking.searchEnterprise(text: Search(enterpriseSearched: enterprise)) { (enterprises, error) in
+
+            if let error = error { print(error) }
+            guard let enterprises = enterprises?.enterprises else { return }
+            self.view?.updateList(enterprises)
+        }
+    }
+    
+    func showEnterpriseDetail(_ enterprise: Enterprise) {
+        let navigation = UINavigationController()
+        let presenter = EnterpriseDetailPresenter(
+            navigationController: navigation,
+            networking: Networking(),
+            appStorage: .shared)
+        let enterpriseDetailViewController = EnterpriseDetailViewController(presenter: presenter, enterprise: enterprise)
+        self.navigationController?.pushViewController(enterpriseDetailViewController, animated: true)
+    }
+
 }

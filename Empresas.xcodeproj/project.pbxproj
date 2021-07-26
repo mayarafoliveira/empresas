@@ -89,9 +89,9 @@
 		7D56B4B3269D49FB00FACD8E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7D56B4CF269DB65F00FACD8E /* EnterpriseDetailView.swift */,
 				7D56B4D1269DB67E00FACD8E /* LoginView.swift */,
 				7D56B4D3269DB6B100FACD8E /* SearchView.swift */,
+				7D56B4CF269DB65F00FACD8E /* EnterpriseDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,9 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */,
-				7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */,
 				7D56B4BA269DB38800FACD8E /* LoginViewController.swift */,
 				7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */,
+				7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

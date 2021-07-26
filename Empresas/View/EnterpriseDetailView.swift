@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol CustomTellerBack: AnyObject {
+protocol EnterpriseDetailDelegate: AnyObject {
 
 }
 
 class EnterpriseDetailView: UIView {
     
     private var enterprise: Enterprise?
-    weak var delegate: CustomTellerBack?
+    weak var delegate: EnterpriseDetailDelegate?
     
     lazy var enterpriseName: UILabel = {
         let enterpriseName = UILabel()

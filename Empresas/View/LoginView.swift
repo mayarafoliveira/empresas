@@ -199,7 +199,7 @@ class LoginView: UIView {
         self.setBackgroundColor(to: .white)
         addSubviews()
         setupConstraints()
-        
+
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
@@ -390,7 +390,9 @@ extension LoginView: UITextFieldDelegate {
         guard let emailText = emailTextField.text else { return }
         guard let passwordText = passwordTextField.text else { return }
         
-        // validate()
+        delegate?.validateEmail(email: emailText)
+        delegate?.validatePassword(password: passwordText)
+        
         if emailIsEnabled && passwordIsEnabled {
             signInButton.isEnabled = true
             signInButton.backgroundColor = .pinkMain

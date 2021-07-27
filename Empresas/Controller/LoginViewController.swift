@@ -7,16 +7,27 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, CustomTeller {
+class LoginViewController: BaseViewController {
     
-    private lazy var networking = Networking()
+    private let presenter: LoginPresenting
+    private lazy var loginView = LoginView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCustomNavigation()
     }
-
+    
+    init(presenter: LoginPresenting) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        presenter.attach(view: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
-        let loginView = LoginView()
         loginView.delegate = self
         view = loginView
     }
@@ -24,12 +35,35 @@ class LoginViewController: UIViewController, CustomTeller {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return.lightContent
     }
-    
-    func signInButtonClicked(_: UIButton) {
-        
-        let search = UINavigationController(rootViewController: SearchViewController())
-        search.modalPresentationStyle = .fullScreen
-        self.present(search, animated: true, completion: nil)
+}
 
+extension LoginViewController: LoginViewable {
+    func isEmailValid(_ isValid: Bool) {
+        loginView.isEmailValid(isValid)
+    }
+    
+    func isPasswordValid(_ isValid: Bool) {
+        loginView.isPasswordValid(isValid)
+    }
+    
+    func showError(error: Error) {
+        let alert = UIAlertController(title: "Oops", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Tentar novamente", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+extension LoginViewController: LoginViewDelegate {
+    func validateEmail(email: String) {
+        presenter.validateEmail(email: email)
+    }
+    
+    func validatePassword(password: String) {
+        presenter.validatePassword(password: password)
+    }
+    
+    func signIn(email: String, password: String) {
+        self.presenter.signIn(email: email, password: password)
     }
 }

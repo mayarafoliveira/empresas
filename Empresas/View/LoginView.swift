@@ -7,14 +7,17 @@
 
 import UIKit
 
-protocol CustomTeller: AnyObject {
-    func signInButtonClicked(_: UIButton)
+protocol LoginViewDelegate: AnyObject {
+    func signIn(email: String, password: String)
+    func validateEmail(email: String)
+    func validatePassword(password: String)
 }
 
 class LoginView: UIView {
     
-    weak var delegate: CustomTeller?
-    private let userDefaults = UserDefaults()
+    weak var delegate: LoginViewDelegate?
+    private var emailIsEnabled: Bool = false
+    private var passwordIsEnabled: Bool = false
     
     // Header
     private lazy var backgroundImage: UIImageView = {
@@ -75,6 +78,8 @@ class LoginView: UIView {
     private(set) lazy var emailView: UIView = {
         let emailView = UIView()
         emailView.backgroundColor = .graySecondary
+        emailView.layer.borderColor = UIColor.graySecondary.cgColor
+        emailView.layer.borderWidth = 1
         emailView.layer.cornerRadius = 4
         emailView.translatesAutoresizingMaskIntoConstraints = false
         return emailView
@@ -96,7 +101,7 @@ class LoginView: UIView {
     private(set) lazy var emailErrorImage: UIImageView = {
         let emailErrorImage = UIImageView()
         emailErrorImage.image = .redX
-        emailErrorImage.contentMode = .scaleAspectFit
+        emailErrorImage.contentMode = .center
         emailErrorImage.isHidden = true
         emailErrorImage.translatesAutoresizingMaskIntoConstraints = false
         return emailErrorImage
@@ -125,6 +130,8 @@ class LoginView: UIView {
     private(set) lazy var passwordView: UIView = {
         let passwordView = UIView()
         passwordView.backgroundColor = .graySecondary
+        passwordView.layer.borderColor = UIColor.graySecondary.cgColor
+        passwordView.layer.borderWidth = 1
         passwordView.layer.cornerRadius = 4
         passwordView.translatesAutoresizingMaskIntoConstraints = false
         return passwordView
@@ -147,7 +154,7 @@ class LoginView: UIView {
     private(set) lazy var passwordErrorImage: UIImageView = {
         let passwordErrorImage = UIImageView()
         passwordErrorImage.image = .redX
-        passwordErrorImage.contentMode = .scaleAspectFit
+        passwordErrorImage.contentMode = .center
         passwordErrorImage.isHidden = true
         passwordErrorImage.translatesAutoresizingMaskIntoConstraints = false
         return passwordErrorImage
@@ -196,7 +203,7 @@ class LoginView: UIView {
         self.setBackgroundColor(to: .white)
         addSubviews()
         setupConstraints()
-        
+
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
@@ -220,33 +227,12 @@ class LoginView: UIView {
     
     @objc func signInAction(sender: UIButton) {
        
-        let networking = Networking()
-        
         guard let email = emailTextField.text,
               let password = passwordTextField.text
         else { return }
-        
-        let values = Login(email: email, password: password)
-  
-        networking.login(order: values) { success, error  in
-      
-            if success {
-                self.delegate?.signInButtonClicked(sender)
-            } else {
-                if let error = error { print(error.localizedDescription) }
-                
-                self.emailTextField.invalidField(
-                    titleLabel: self.emailLabel,
-                    errorImage: self.emailErrorImage,
-                    warningLabel: self.emailWarningLabel)
-                
-                self.passwordTextField.invalidField(
-                    titleLabel: self.passwordLabel,
-                    errorImage: self.passwordErrorImage,
-                    warningLabel: self.passwordWarningLabel,
-                    showPasswordButton: self.showPasswordButton)
-            }
-        }
+
+        self.endEditing(true)
+        self.delegate?.signIn(email: email, password: password)
     }
 }
 
@@ -398,27 +384,54 @@ extension LoginView: UITextFieldDelegate {
 
         switch textField {
         case emailTextField:
-            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
+            delegate?.validateEmail(email: textField.text ?? "")
         default:
-            textField.setBorderColorIfNeeded(titleLabel: passwordLabel,
-                                             errorImage: passwordErrorImage,
-                                             warningLabel: passwordWarningLabel,
-                                             showPasswordButton: showPasswordButton)
+            delegate?.validatePassword(password: textField.text ?? "")
         }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-        guard let emailText = emailTextField.text else { return }
-        guard let passwordText = passwordTextField.text else { return }
+        guard
+            let emailText = emailTextField.text,
+            let passwordText = passwordTextField.text
+        else { return }
         
-        if emailText.isEmpty || passwordText.isEmpty {
-            signInButton.isEnabled = false
-            signInButton.backgroundColor = .graySecondary
-        } else {
+        delegate?.validateEmail(email: emailText)
+        delegate?.validatePassword(password: passwordText)
+        
+        if emailIsEnabled && passwordIsEnabled {
             signInButton.isEnabled = true
             signInButton.backgroundColor = .pinkMain
+        } else {
+            signInButton.isEnabled = false
+            signInButton.backgroundColor = .graySecondary
+        }
+    }
+}
+
+extension LoginView {
+    
+    func isEmailValid(_ isValid: Bool) {
+        emailIsEnabled = isValid
+        emailTextField.setBorderColorIfNeeded(titleLabel: emailLabel)
+        
+        guard emailTextField.text?.isEmpty == false else { return }
+        if !isValid && !emailTextField.isEditing {
+            emailTextField.invalidField(errorImage: emailErrorImage,
+                                        warningLabel: emailWarningLabel)
         }
     }
     
+    func isPasswordValid(_ isValid: Bool) {
+        passwordIsEnabled = isValid
+        passwordTextField.setBorderColorIfNeeded(titleLabel: passwordLabel)
+        
+        guard passwordTextField.text?.isEmpty == false else { return }
+        if !isValid && !passwordTextField.isEditing {
+            passwordTextField.invalidField(errorImage: passwordErrorImage,
+                                           warningLabel: passwordWarningLabel,
+                                           showPasswordButton: showPasswordButton)
+        }
+    }
 }

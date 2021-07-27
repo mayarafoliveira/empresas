@@ -7,15 +7,13 @@
 
 import UIKit
 
-protocol EnterpriseDetailProtocol: AnyObject {
+protocol SearchViewDelegate: AnyObject {
+    func searchFor(enterprise: String)
     func showEnterpriseDetail(_ enterprise: Enterprise)
 }
 
 class SearchView: UIView {
-    
-    private lazy var networking = Networking()
-    
-    weak var delegate: EnterpriseDetailProtocol?
+    weak var delegate: SearchViewDelegate?
     
     private var enterprises: [Enterprise] = [] {
         didSet {
@@ -176,20 +174,7 @@ extension SearchView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
         guard let text = textField.text else { return }
-        
-        networking.searchEnterprise(text: Search(enterpriseSearched: text)) { (enterprises, error) in
-          
-            if let error = error { print(error) }
-            guard let enterprises = enterprises?.enterprises else { return }
-            
-            self.noResultsLabel.isHidden = !enterprises.isEmpty
-            
-            self.setEnterprises(enterprises)
-        }
-    }
-    
-    func setEnterprises(_ enterprises: [Enterprise]) {
-        self.enterprises = enterprises
+        self.delegate?.searchFor(enterprise: text)
     }
 }
 
@@ -212,5 +197,12 @@ extension SearchView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.isSelected = false
         self.delegate?.showEnterpriseDetail(self.enterprises[indexPath.row])
+    }
+}
+
+extension SearchView {
+    func updateList(_ enterprises: [Enterprise]) {
+        self.enterprises = enterprises
+        noResultsLabel.isHidden = !enterprises.isEmpty
     }
 }

@@ -26,6 +26,10 @@
 		7D5775CC269D45C300C1E79D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5775CB269D45C300C1E79D /* SceneDelegate.swift */; };
 		7D5775D3269D45C400C1E79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5775D2269D45C400C1E79D /* Assets.xcassets */; };
 		7D5775D6269D45C400C1E79D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5775D4269D45C400C1E79D /* LaunchScreen.storyboard */; };
+		7D5C5AB426A728450022FCBE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C5AB326A728450022FCBE /* LoginPresenter.swift */; };
+		7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C5AB526A7285A0022FCBE /* SearchPresenter.swift */; };
+		7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C5AB726A728790022FCBE /* EnterpriseDetailPresenter.swift */; };
+		7DA708D326A9C2F200DE68A7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */; };
 		7DD118E126A1CA5E00881FE5 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD118E026A1CA5E00881FE5 /* AppStorage.swift */; };
 		7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD118E226A1CF7400881FE5 /* UserAccess.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +55,10 @@
 		7D5775D2269D45C400C1E79D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D5775D5269D45C400C1E79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D5775D7269D45C400C1E79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D5C5AB326A728450022FCBE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		7D5C5AB526A7285A0022FCBE /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		7D5C5AB726A728790022FCBE /* EnterpriseDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailPresenter.swift; sourceTree = "<group>"; };
+		7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7DD118E026A1CA5E00881FE5 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		7DD118E226A1CF7400881FE5 /* UserAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccess.swift; sourceTree = "<group>"; };
 		842818898E3BE931E855B58C /* Pods_Empresas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Empresas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,9 +89,9 @@
 		7D56B4B3269D49FB00FACD8E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7D56B4CF269DB65F00FACD8E /* EnterpriseDetailView.swift */,
 				7D56B4D1269DB67E00FACD8E /* LoginView.swift */,
 				7D56B4D3269DB6B100FACD8E /* SearchView.swift */,
+				7D56B4CF269DB65F00FACD8E /* EnterpriseDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,9 +125,10 @@
 		7D56B4B7269D4D2900FACD8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */,
+				7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */,
 				7D56B4BA269DB38800FACD8E /* LoginViewController.swift */,
 				7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */,
+				7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 		7D5775C8269D45C300C1E79D /* Empresas */ = {
 			isa = PBXGroup;
 			children = (
+				7D5C5AB226A71E7D0022FCBE /* Presenter */,
 				7D56B4C3269DB44D00FACD8E /* Networking */,
 				7D56B4BE269DB3E800FACD8E /* Model */,
 				7D56B4B3269D49FB00FACD8E /* View */,
@@ -186,6 +196,16 @@
 				7D56B4B6269D4CB400FACD8E /* Supporting Files */,
 			);
 			path = Empresas;
+			sourceTree = "<group>";
+		};
+		7D5C5AB226A71E7D0022FCBE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7D5C5AB326A728450022FCBE /* LoginPresenter.swift */,
+				7D5C5AB526A7285A0022FCBE /* SearchPresenter.swift */,
+				7D5C5AB726A728790022FCBE /* EnterpriseDetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		F17CD744749F6ABC1838A808 /* Pods */ = {
@@ -330,14 +350,18 @@
 			files = (
 				7D56B4C0269DB40500FACD8E /* Login.swift in Sources */,
 				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
+				7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */,
+				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
 				7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */,
 				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,
+				7D5C5AB426A728450022FCBE /* LoginPresenter.swift in Sources */,
 				7D56B4D2269DB67E00FACD8E /* LoginView.swift in Sources */,
 				7D5775CA269D45C300C1E79D /* AppDelegate.swift in Sources */,
 				7D56B4B9269DB35900FACD8E /* EnterpriseDetailViewController.swift in Sources */,
 				7D56B4C5269DB45D00FACD8E /* HTTPMethod.swift in Sources */,
 				7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */,
 				7D56B4CC269DB50500FACD8E /* ImageExtension.swift in Sources */,
+				7DA708D326A9C2F200DE68A7 /* BaseViewController.swift in Sources */,
 				7D56B4C2269DB41E00FACD8E /* Search.swift in Sources */,
 				7D56B4BB269DB38800FACD8E /* LoginViewController.swift in Sources */,
 				7D56B4CA269DB4DD00FACD8E /* ColorExtension.swift in Sources */,

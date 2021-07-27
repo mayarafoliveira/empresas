@@ -20,41 +20,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         if AppStorage.shared.authorization?.accessToken == nil {
-            window?.rootViewController = LoginViewController()
+            showLogin()
         } else {
-            let searchViewController = UINavigationController(rootViewController: SearchViewController())
-            searchViewController.modalPresentationStyle = .fullScreen
-            window?.rootViewController = searchViewController
+            showSearch()
         }
-
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+    func showLogin() {
+        let navigation = UINavigationController()
+        let presenter = LoginPresenter(navigationController: navigation, networking: Networking(), appStorage: .shared)
+        let loginViewController = LoginViewController(presenter: presenter)
+        navigation.setViewControllers([loginViewController], animated: false)
+        window?.rootViewController = navigation
     }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    
+    func showSearch() {
+        let navigation = UINavigationController()
+        let presenter = SearchPresenter(navigationController: navigation, networking: Networking(), appStorage: .shared)
+        let searchViewController = SearchViewController(presenter: presenter)
+        navigation.setViewControllers([searchViewController], animated: true)
+        window?.rootViewController = navigation
     }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
 }

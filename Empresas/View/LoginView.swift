@@ -78,6 +78,8 @@ class LoginView: UIView {
     private(set) lazy var emailView: UIView = {
         let emailView = UIView()
         emailView.backgroundColor = .graySecondary
+        emailView.layer.borderColor = UIColor.graySecondary.cgColor
+        emailView.layer.borderWidth = 1
         emailView.layer.cornerRadius = 4
         emailView.translatesAutoresizingMaskIntoConstraints = false
         return emailView
@@ -99,7 +101,7 @@ class LoginView: UIView {
     private(set) lazy var emailErrorImage: UIImageView = {
         let emailErrorImage = UIImageView()
         emailErrorImage.image = .redX
-        emailErrorImage.contentMode = .scaleAspectFit
+        emailErrorImage.contentMode = .center
         emailErrorImage.isHidden = true
         emailErrorImage.translatesAutoresizingMaskIntoConstraints = false
         return emailErrorImage
@@ -128,6 +130,8 @@ class LoginView: UIView {
     private(set) lazy var passwordView: UIView = {
         let passwordView = UIView()
         passwordView.backgroundColor = .graySecondary
+        passwordView.layer.borderColor = UIColor.graySecondary.cgColor
+        passwordView.layer.borderWidth = 1
         passwordView.layer.cornerRadius = 4
         passwordView.translatesAutoresizingMaskIntoConstraints = false
         return passwordView
@@ -150,7 +154,7 @@ class LoginView: UIView {
     private(set) lazy var passwordErrorImage: UIImageView = {
         let passwordErrorImage = UIImageView()
         passwordErrorImage.image = .redX
-        passwordErrorImage.contentMode = .scaleAspectFit
+        passwordErrorImage.contentMode = .center
         passwordErrorImage.isHidden = true
         passwordErrorImage.translatesAutoresizingMaskIntoConstraints = false
         return passwordErrorImage
@@ -227,6 +231,7 @@ class LoginView: UIView {
               let password = passwordTextField.text
         else { return }
 
+        self.endEditing(true)
         self.delegate?.signIn(email: email, password: password)
     }
 }
@@ -404,26 +409,25 @@ extension LoginView: UITextFieldDelegate {
 }
 
 extension LoginView {
+    
     func isEmailValid(_ isValid: Bool) {
         emailIsEnabled = isValid
+        emailTextField.setBorderColorIfNeeded(titleLabel: emailLabel)
         
-        if isValid {
-            emailTextField.setBorderColorIfNeeded(titleLabel: emailLabel)
-        } else {
-            emailTextField.invalidField(titleLabel: emailLabel,
-                                        errorImage: emailErrorImage,
+        guard emailTextField.text?.isEmpty == false else { return }
+        if !isValid && !emailTextField.isEditing {
+            emailTextField.invalidField(errorImage: emailErrorImage,
                                         warningLabel: emailWarningLabel)
         }
     }
     
     func isPasswordValid(_ isValid: Bool) {
         passwordIsEnabled = isValid
+        passwordTextField.setBorderColorIfNeeded(titleLabel: passwordLabel)
         
-        if isValid {
-            passwordTextField.setBorderColorIfNeeded(titleLabel: passwordLabel)
-        } else {
-            passwordTextField.invalidField(titleLabel: passwordLabel,
-                                           errorImage: passwordErrorImage,
+        guard passwordTextField.text?.isEmpty == false else { return }
+        if !isValid && !passwordTextField.isEditing {
+            passwordTextField.invalidField(errorImage: passwordErrorImage,
                                            warningLabel: passwordWarningLabel,
                                            showPasswordButton: showPasswordButton)
         }

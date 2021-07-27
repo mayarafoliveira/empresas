@@ -30,14 +30,12 @@ extension UITextField {
     }
     
     /// Shows which field is invalid
-    func invalidField(titleLabel: UILabel,
-                      errorImage: UIImageView? = nil,
+    func invalidField(errorImage: UIImageView? = nil,
                       warningLabel: UILabel? = nil,
                       showPasswordButton: UIButton? = nil) {
         guard let view = self.superview else { return }
         
         view.layer.borderColor = UIColor.redError.cgColor
-        titleLabel.textColor = .redError
         warningLabel?.textColor = .redError
         errorImage?.isHidden = false
         showPasswordButton?.isEnabled = false

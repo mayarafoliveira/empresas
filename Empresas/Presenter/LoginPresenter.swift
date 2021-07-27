@@ -58,10 +58,11 @@ class LoginPresenter: LoginPresenting {
                 sceneDelegate?.showSearch()
               
             } else {
-                guard let error = error else { return }
-                self?.view?.showError(error: error)
                 self?.view?.isEmailValid(false)
                 self?.view?.isPasswordValid(false)
+                
+                guard let error = error else { return }
+                self?.view?.showError(error: error)
             }
         }
     }

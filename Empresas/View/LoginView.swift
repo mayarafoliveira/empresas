@@ -392,8 +392,10 @@ extension LoginView: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-        guard let emailText = emailTextField.text else { return }
-        guard let passwordText = passwordTextField.text else { return }
+        guard
+            let emailText = emailTextField.text,
+            let passwordText = passwordTextField.text
+        else { return }
         
         delegate?.validateEmail(email: emailText)
         delegate?.validatePassword(password: passwordText)

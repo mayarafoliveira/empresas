@@ -24,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             showSearch()
         }
-
     }
 
     func showLogin() {
@@ -41,9 +40,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchViewController = SearchViewController(presenter: presenter)
         navigation.setViewControllers([searchViewController], animated: true)
         window?.rootViewController = navigation
-        
-//        let searchViewController = UINavigationController(rootViewController: SearchViewController()
-//        searchViewController.modalPresentationStyle = .fullScreen
-//        window?.rootViewController = searchViewController
     }
 }

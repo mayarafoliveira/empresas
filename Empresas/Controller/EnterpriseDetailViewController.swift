@@ -11,7 +11,7 @@ class EnterpriseDetailViewController: BaseViewController {
     
     private let presenter: EnterpriseDetailPresenting
     private var enterprise: Enterprise?
-    private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: nil)
+    private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: enterprise)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,6 @@ class EnterpriseDetailViewController: BaseViewController {
         self.presenter = presenter
         self.enterprise = enterprise
         super.init(nibName: nil, bundle: nil)
-        self.enterpriseDetailView = EnterpriseDetailView(enterprise: self.enterprise)
         presenter.attach(view: self)
     }
     

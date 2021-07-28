@@ -25,13 +25,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             showSearch()
         }
     }
+}
 
+extension SceneDelegate {
+    
     func showLogin() {
-        let navigation = UINavigationController()
-        let presenter = LoginPresenter(navigationController: navigation, networking: Networking(), appStorage: .shared)
-        let loginViewController = LoginViewController(presenter: presenter)
-        navigation.setViewControllers([loginViewController], animated: false)
-        window?.rootViewController = navigation
+        let rootViewController = UINavigationController()
+        
+        LoginCoordinator(rootViewController: rootViewController).start()
+        window?.rootViewController = rootViewController
     }
     
     func showSearch() {

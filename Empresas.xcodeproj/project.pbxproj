@@ -32,6 +32,9 @@
 		7DA708D326A9C2F200DE68A7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */; };
 		7DD118E126A1CA5E00881FE5 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD118E026A1CA5E00881FE5 /* AppStorage.swift */; };
 		7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD118E226A1CF7400881FE5 /* UserAccess.swift */; };
+		7DFD824B26B09AF90027A668 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824A26B09AF90027A668 /* Coordinator.swift */; };
+		7DFD824D26B09DD00027A668 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */; };
+		7DFD824F26B0A6AE0027A668 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7DD118E026A1CA5E00881FE5 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		7DD118E226A1CF7400881FE5 /* UserAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccess.swift; sourceTree = "<group>"; };
+		7DFD824A26B09AF90027A668 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
+		7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		842818898E3BE931E855B58C /* Pods_Empresas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Empresas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CF23BC93C5335395C5A3F1 /* Pods-Empresas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Empresas.debug.xcconfig"; path = "Target Support Files/Pods-Empresas/Pods-Empresas.debug.xcconfig"; sourceTree = "<group>"; };
 		BF0901EB8ABC7A6DE3147E26 /* Pods-Empresas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Empresas.release.xcconfig"; path = "Target Support Files/Pods-Empresas/Pods-Empresas.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 		7D5775C8269D45C300C1E79D /* Empresas */ = {
 			isa = PBXGroup;
 			children = (
+				7DFD824926B09AC90027A668 /* Coordinator */,
 				7D5C5AB226A71E7D0022FCBE /* Presenter */,
 				7D56B4C3269DB44D00FACD8E /* Networking */,
 				7D56B4BE269DB3E800FACD8E /* Model */,
@@ -206,6 +213,16 @@
 				7D5C5AB726A728790022FCBE /* EnterpriseDetailPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7DFD824926B09AC90027A668 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7DFD824A26B09AF90027A668 /* Coordinator.swift */,
+				7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */,
+				7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		F17CD744749F6ABC1838A808 /* Pods */ = {
@@ -352,6 +369,7 @@
 				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
 				7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */,
 				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
+				7DFD824D26B09DD00027A668 /* LoginCoordinating.swift in Sources */,
 				7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */,
 				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,
 				7D5C5AB426A728450022FCBE /* LoginPresenter.swift in Sources */,
@@ -364,7 +382,9 @@
 				7DA708D326A9C2F200DE68A7 /* BaseViewController.swift in Sources */,
 				7D56B4C2269DB41E00FACD8E /* Search.swift in Sources */,
 				7D56B4BB269DB38800FACD8E /* LoginViewController.swift in Sources */,
+				7DFD824F26B0A6AE0027A668 /* LoginCoordinator.swift in Sources */,
 				7D56B4CA269DB4DD00FACD8E /* ColorExtension.swift in Sources */,
+				7DFD824B26B09AF90027A668 /* Coordinator.swift in Sources */,
 				7D56B4D4269DB6B100FACD8E /* SearchView.swift in Sources */,
 				7D5775CC269D45C300C1E79D /* SceneDelegate.swift in Sources */,
 				7DD118E126A1CA5E00881FE5 /* AppStorage.swift in Sources */,

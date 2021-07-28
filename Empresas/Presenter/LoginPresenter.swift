@@ -25,11 +25,13 @@ class LoginPresenter: LoginPresenting {
     weak var navigationController: UINavigationController?
     private let networking: Networking
     private let appStorage: AppStorage
+    private let coordinator: LoginCoordinating
     
-    init(navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
+    init(coordinator: LoginCoordinating, navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
         self.navigationController = navigationController
         self.networking = networking
         self.appStorage = appStorage
+        self.coordinator = coordinator
     }
     
     func attach(view: LoginViewable) {

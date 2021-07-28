@@ -16,10 +16,13 @@ struct LoginCoordinator: Coordinator, LoginCoordinating {
     }
     
     func start() {
-
-        let navigation = UINavigationController()
-        let presenter = LoginPresenter(coordinator: self, navigationController: navigation, networking: Networking(), appStorage: .shared)
-        rootViewController?.setViewControllers(
+        guard let rootViewController = rootViewController else { return }
+        let presenter = LoginPresenter(coordinator: self,
+                                       navigationController: rootViewController,
+                                       networking: Networking(),
+                                       appStorage: .shared)
+        
+        rootViewController.setViewControllers(
             [LoginViewController(presenter: presenter)],
             animated: true
         )

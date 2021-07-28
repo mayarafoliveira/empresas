@@ -10,8 +10,7 @@ import UIKit
 class EnterpriseDetailViewController: BaseViewController {
     
     private let presenter: EnterpriseDetailPresenting
-    private var enterprise: Enterprise?
-    private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: enterprise)
+    private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: presenter.enterprise)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +22,8 @@ class EnterpriseDetailViewController: BaseViewController {
         view = enterpriseDetailView
     }
 
-    init(presenter: EnterpriseDetailPresenting, enterprise: Enterprise) {
+    init(presenter: EnterpriseDetailPresenting) {
         self.presenter = presenter
-        self.enterprise = enterprise
         super.init(nibName: nil, bundle: nil)
         presenter.attach(view: self)
     }

@@ -47,8 +47,9 @@ class SearchPresenter: SearchPresenting {
         let presenter = EnterpriseDetailPresenter(
             navigationController: navigation,
             networking: Networking(),
-            appStorage: .shared)
-        let enterpriseDetailViewController = EnterpriseDetailViewController(presenter: presenter, enterprise: enterprise)
+            appStorage: .shared,
+            enterprise: enterprise)
+        let enterpriseDetailViewController = EnterpriseDetailViewController(presenter: presenter)
         self.navigationController?.pushViewController(enterpriseDetailViewController, animated: true)
     }
 

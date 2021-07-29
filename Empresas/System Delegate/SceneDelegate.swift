@@ -43,4 +43,12 @@ extension SceneDelegate {
         navigation.setViewControllers([searchViewController], animated: true)
         window?.rootViewController = navigation
     }
+    
+    // método só para testar o coordinator do Enterprise Detail
+    func showEnterpriseDetail(enterprise: Enterprise) {
+        let rootViewController = UINavigationController()
+        
+        EnterpriseDetailCoordinator(rootViewController: rootViewController, enterprise: enterprise).start()
+        window?.rootViewController = rootViewController
+    }
 }

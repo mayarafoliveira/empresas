@@ -43,14 +43,9 @@ class SearchPresenter: SearchPresenting {
     }
     
     func showEnterpriseDetail(_ enterprise: Enterprise) {
-        let navigation = UINavigationController()
-        let presenter = EnterpriseDetailPresenter(
-            navigationController: navigation,
-            networking: Networking(),
-            appStorage: .shared,
-            enterprise: enterprise)
-        let enterpriseDetailViewController = EnterpriseDetailViewController(presenter: presenter)
-        self.navigationController?.pushViewController(enterpriseDetailViewController, animated: true)
+        let window = self.navigationController?.view.window
+        let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
+        sceneDelegate?.showEnterpriseDetail(enterprise: enterprise)
     }
 
 }

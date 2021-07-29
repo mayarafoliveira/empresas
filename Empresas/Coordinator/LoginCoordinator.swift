@@ -18,7 +18,6 @@ struct LoginCoordinator: Coordinator, LoginCoordinating {
     func start() {
         guard let rootViewController = rootViewController else { return }
         let presenter = LoginPresenter(coordinator: self,
-                                       navigationController: rootViewController,
                                        networking: Networking(),
                                        appStorage: .shared)
         
@@ -26,5 +25,11 @@ struct LoginCoordinator: Coordinator, LoginCoordinating {
             [LoginViewController(presenter: presenter)],
             animated: true
         )
+    }
+    
+    func showSearch() {
+        let window = rootViewController?.view.window
+        let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
+        sceneDelegate?.showSearch()
     }
 }

@@ -18,8 +18,7 @@ struct EnterpriseDetailCoordinator: Coordinator, EnterpriseDetailCoordinating {
     }
     
     func start() {
-        guard let rootViewController = rootViewController
-        else { return }
+        guard let rootViewController = rootViewController else { return }
         
         let presenter = EnterpriseDetailPresenter(
             coordinator: self,

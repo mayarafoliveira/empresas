@@ -22,8 +22,10 @@ class SearchPresenter: SearchPresenting {
     weak var navigationController: UINavigationController?
     private let networking: Networking
     private let appStorage: AppStorage
+    private let coordinator: SearchCoordinating
     
-    init(navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
+    init(coordinator: SearchCoordinating, navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
+        self.coordinator = coordinator
         self.navigationController = navigationController
         self.networking = networking
         self.appStorage = appStorage
@@ -43,9 +45,7 @@ class SearchPresenter: SearchPresenting {
     }
     
     func showEnterpriseDetail(_ enterprise: Enterprise) {
-        let window = self.navigationController?.view.window
-        let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.showEnterpriseDetail(enterprise: enterprise)
+        coordinator.showEnterpriseDetail(enterprise)
     }
 
 }

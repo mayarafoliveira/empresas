@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2BFE6893BAD316DCCCF8BFDE /* Pods_Empresas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842818898E3BE931E855B58C /* Pods_Empresas.framework */; };
+		7D0B577526B301B200B6D7C9 /* SearchCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B577426B301B200B6D7C9 /* SearchCoordinating.swift */; };
+		7D0B577726B301C100B6D7C9 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B577626B301C100B6D7C9 /* SearchCoordinator.swift */; };
 		7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */; };
 		7D4661B426B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4661B326B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift */; };
 		7D4661B626B1D07700FE6257 /* EnterpriseDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4661B526B1D07700FE6257 /* EnterpriseDetailCoordinator.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0B577426B301B200B6D7C9 /* SearchCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinating.swift; sourceTree = "<group>"; };
+		7D0B577626B301C100B6D7C9 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		7D4661B326B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailCoordinating.swift; sourceTree = "<group>"; };
 		7D4661B526B1D07700FE6257 /* EnterpriseDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				7DFD824A26B09AF90027A668 /* Coordinator.swift */,
 				7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */,
 				7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */,
+				7D0B577426B301B200B6D7C9 /* SearchCoordinating.swift */,
+				7D0B577626B301C100B6D7C9 /* SearchCoordinator.swift */,
 				7D4661B326B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift */,
 				7D4661B526B1D07700FE6257 /* EnterpriseDetailCoordinator.swift */,
 			);
@@ -377,10 +383,12 @@
 				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
 				7DFD824D26B09DD00027A668 /* LoginCoordinating.swift in Sources */,
 				7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */,
+				7D0B577726B301C100B6D7C9 /* SearchCoordinator.swift in Sources */,
 				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,
 				7D5C5AB426A728450022FCBE /* LoginPresenter.swift in Sources */,
 				7D56B4D2269DB67E00FACD8E /* LoginView.swift in Sources */,
 				7D5775CA269D45C300C1E79D /* AppDelegate.swift in Sources */,
+				7D0B577526B301B200B6D7C9 /* SearchCoordinating.swift in Sources */,
 				7D56B4B9269DB35900FACD8E /* EnterpriseDetailViewController.swift in Sources */,
 				7D56B4C5269DB45D00FACD8E /* HTTPMethod.swift in Sources */,
 				7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */,

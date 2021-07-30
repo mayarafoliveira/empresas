@@ -37,18 +37,9 @@ extension SceneDelegate {
     }
     
     func showSearch() {
-        let navigation = UINavigationController()
-        let presenter = SearchPresenter(navigationController: navigation, networking: Networking(), appStorage: .shared)
-        let searchViewController = SearchViewController(presenter: presenter)
-        navigation.setViewControllers([searchViewController], animated: true)
-        window?.rootViewController = navigation
-    }
-    
-    // método só para testar o coordinator do Enterprise Detail
-    func showEnterpriseDetail(enterprise: Enterprise) {
         let rootViewController = UINavigationController()
         
-        EnterpriseDetailCoordinator(rootViewController: rootViewController, enterprise: enterprise).start()
+        SearchCoordinator(rootViewController: rootViewController).start()
         window?.rootViewController = rootViewController
     }
 }

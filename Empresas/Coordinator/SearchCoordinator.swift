@@ -20,7 +20,6 @@ struct SearchCoordinator: Coordinator, SearchCoordinating {
         
         let presenter = SearchPresenter(
             coordinator: self,
-            navigationController: rootViewController,
             networking: Networking(),
             appStorage: .shared
         )

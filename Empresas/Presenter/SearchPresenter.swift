@@ -19,14 +19,12 @@ protocol SearchViewable: AnyObject {
 
 class SearchPresenter: SearchPresenting {
     weak var view: SearchViewable?
-    weak var navigationController: UINavigationController?
     private let networking: Networking
     private let appStorage: AppStorage
     private let coordinator: SearchCoordinating
     
-    init(coordinator: SearchCoordinating, navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
+    init(coordinator: SearchCoordinating, networking: Networking, appStorage: AppStorage) {
         self.coordinator = coordinator
-        self.navigationController = navigationController
         self.networking = networking
         self.appStorage = appStorage
     }

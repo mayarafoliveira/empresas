@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appCoordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -17,29 +18,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.makeKeyAndVisible()
         
-        if AppStorage.shared.authorization?.accessToken == nil {
-            showLogin()
-        } else {
-            showSearch()
-        }
+        guard let window = window else { return }
+        self.appCoordinator = AppCoordinator(window: window)
+        self.appCoordinator?.start()
+        
+        window.makeKeyAndVisible()
     }
 }
 
 extension SceneDelegate {
     
     func showLogin() {
-        let rootViewController = UINavigationController()
-        
-        LoginCoordinator(rootViewController: rootViewController).start()
-        window?.rootViewController = rootViewController
+        appCoordinator?.showLogin()
     }
     
     func showSearch() {
-        let rootViewController = UINavigationController()
-        
-        SearchCoordinator(rootViewController: rootViewController).start()
-        window?.rootViewController = rootViewController
+        appCoordinator?.showSearch()
     }
 }

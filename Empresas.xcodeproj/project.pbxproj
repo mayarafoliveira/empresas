@@ -36,6 +36,8 @@
 		7DA708D326A9C2F200DE68A7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */; };
 		7DD118E126A1CA5E00881FE5 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD118E026A1CA5E00881FE5 /* AppStorage.swift */; };
 		7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD118E226A1CF7400881FE5 /* UserAccess.swift */; };
+		7DDC83CB26B874A700C43483 /* AppCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC83CA26B874A700C43483 /* AppCoordinating.swift */; };
+		7DDC83CD26B874BA00C43483 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC83CC26B874BA00C43483 /* AppCoordinator.swift */; };
 		7DFD824B26B09AF90027A668 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824A26B09AF90027A668 /* Coordinator.swift */; };
 		7DFD824D26B09DD00027A668 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */; };
 		7DFD824F26B0A6AE0027A668 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */; };
@@ -72,6 +74,8 @@
 		7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7DD118E026A1CA5E00881FE5 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		7DD118E226A1CF7400881FE5 /* UserAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccess.swift; sourceTree = "<group>"; };
+		7DDC83CA26B874A700C43483 /* AppCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinating.swift; sourceTree = "<group>"; };
+		7DDC83CC26B874BA00C43483 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7DFD824A26B09AF90027A668 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
 		7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				7D0B577626B301C100B6D7C9 /* SearchCoordinator.swift */,
 				7D4661B326B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift */,
 				7D4661B526B1D07700FE6257 /* EnterpriseDetailCoordinator.swift */,
+				7DDC83CA26B874A700C43483 /* AppCoordinating.swift */,
+				7DDC83CC26B874BA00C43483 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -381,8 +387,10 @@
 				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
 				7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */,
 				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
+				7DDC83CD26B874BA00C43483 /* AppCoordinator.swift in Sources */,
 				7DFD824D26B09DD00027A668 /* LoginCoordinating.swift in Sources */,
 				7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */,
+				7DDC83CB26B874A700C43483 /* AppCoordinating.swift in Sources */,
 				7D0B577726B301C100B6D7C9 /* SearchCoordinator.swift in Sources */,
 				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,
 				7D5C5AB426A728450022FCBE /* LoginPresenter.swift in Sources */,

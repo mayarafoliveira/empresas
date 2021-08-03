@@ -7,16 +7,6 @@
 
 import UIKit
 
-protocol SearchPresenting: AnyObject {
-    func searchFor(_ enterprise: String)
-    func attach(view: SearchViewable)
-    func showEnterpriseDetail(_ enterprise: Enterprise)
-}
-
-protocol SearchViewable: AnyObject {
-    func updateList(_ enterprises: [Enterprise])
-}
-
 class SearchPresenter: SearchPresenting {
     weak var view: SearchViewable?
     private let networking: Networking

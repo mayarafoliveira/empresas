@@ -22,12 +22,12 @@ protocol LoginViewable: AnyObject {
 
 class LoginPresenter: LoginPresenting {
     weak var view: LoginViewable?
-    weak var navigationController: UINavigationController?
     private let networking: Networking
     private let appStorage: AppStorage
+    private let coordinator: LoginCoordinating
     
-    init(navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
-        self.navigationController = navigationController
+    init(coordinator: LoginCoordinating, networking: Networking, appStorage: AppStorage) {
+        self.coordinator = coordinator
         self.networking = networking
         self.appStorage = appStorage
     }
@@ -47,15 +47,11 @@ class LoginPresenter: LoginPresenting {
     }
     
     func signIn(email: String, password: String) {
-        
         let values = Login(email: email, password: password)
-  
         networking.login(order: values) { [weak self] success, error  in
-      
+            
             if success {
-                let window = self?.navigationController?.view.window
-                let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
-                sceneDelegate?.showSearch()
+                self?.coordinator.showSearch()
               
             } else {
                 self?.view?.isEmailValid(false)

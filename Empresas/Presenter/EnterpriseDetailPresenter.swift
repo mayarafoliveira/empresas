@@ -9,6 +9,7 @@ import UIKit
 
 protocol EnterpriseDetailPresenting: AnyObject {
     func attach(view: EnterpriseDetailViewable)
+    var enterprise: Enterprise { get }
 }
 
 protocol EnterpriseDetailViewable: AnyObject {
@@ -16,15 +17,17 @@ protocol EnterpriseDetailViewable: AnyObject {
 }
 
 class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
+    var enterprise: Enterprise
     weak var view: EnterpriseDetailViewable?
-    weak var navigationController: UINavigationController?
     private let networking: Networking
     private let appStorage: AppStorage
+    private let coordinator: EnterpriseDetailCoordinating
     
-    init(navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
-        self.navigationController = navigationController
+    init(coordinator: EnterpriseDetailCoordinating, networking: Networking, appStorage: AppStorage, enterprise: Enterprise) {
+        self.coordinator = coordinator
         self.networking = networking
         self.appStorage = appStorage
+        self.enterprise = enterprise
     }
     
     func attach(view: EnterpriseDetailViewable) {

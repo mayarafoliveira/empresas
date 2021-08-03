@@ -19,12 +19,12 @@ protocol SearchViewable: AnyObject {
 
 class SearchPresenter: SearchPresenting {
     weak var view: SearchViewable?
-    weak var navigationController: UINavigationController?
     private let networking: Networking
     private let appStorage: AppStorage
+    private let coordinator: SearchCoordinating
     
-    init(navigationController: UINavigationController, networking: Networking, appStorage: AppStorage) {
-        self.navigationController = navigationController
+    init(coordinator: SearchCoordinating, networking: Networking, appStorage: AppStorage) {
+        self.coordinator = coordinator
         self.networking = networking
         self.appStorage = appStorage
     }
@@ -43,13 +43,7 @@ class SearchPresenter: SearchPresenting {
     }
     
     func showEnterpriseDetail(_ enterprise: Enterprise) {
-        let navigation = UINavigationController()
-        let presenter = EnterpriseDetailPresenter(
-            navigationController: navigation,
-            networking: Networking(),
-            appStorage: .shared)
-        let enterpriseDetailViewController = EnterpriseDetailViewController(presenter: presenter, enterprise: enterprise)
-        self.navigationController?.pushViewController(enterpriseDetailViewController, animated: true)
+        coordinator.showEnterpriseDetail(enterprise)
     }
 
 }

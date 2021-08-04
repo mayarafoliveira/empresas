@@ -9,14 +9,12 @@ import UIKit
 
 class LoginPresenter: LoginPresenting {
     weak var view: LoginViewable?
-    private let networking: Networking
-    private let appStorage: AppStorage
+    private let loginUseCase: LoginUseCase
     private let coordinator: LoginCoordinating
     
-    init(coordinator: LoginCoordinating, networking: Networking, appStorage: AppStorage) {
+    init(coordinator: LoginCoordinating, loginUseCase: LoginUseCase) {
         self.coordinator = coordinator
-        self.networking = networking
-        self.appStorage = appStorage
+        self.loginUseCase = loginUseCase
     }
     
     func attach(view: LoginViewable) {
@@ -34,8 +32,7 @@ class LoginPresenter: LoginPresenting {
     }
     
     func signIn(email: String, password: String) {
-        let values = Login(email: email, password: password)
-        networking.login(order: values) { [weak self] success, error  in
+        loginUseCase.login(email: email, password: password) { [weak self] success, error  in
             
             if success {
                 self?.coordinator.showSearch()

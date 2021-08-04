@@ -17,9 +17,11 @@ struct LoginCoordinator: Coordinator, LoginCoordinating {
     
     func start() {
         guard let rootViewController = rootViewController else { return }
-        let presenter = LoginPresenter(coordinator: self,
-                                       networking: Networking(),
-                                       appStorage: .shared)
+        
+        let presenter = LoginPresenter(
+            coordinator: self,
+            loginUseCase: RemoteLoginUseCase(resource: .shared)
+        )
         
         rootViewController.setViewControllers(
             [LoginViewController(presenter: presenter)],

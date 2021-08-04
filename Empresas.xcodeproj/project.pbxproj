@@ -48,6 +48,9 @@
 		7DFC5FCA26BAF95900B98966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC5FC926BAF95900B98966 /* User.swift */; };
 		7DFC5FCC26BAF96A00B98966 /* Investor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC5FCB26BAF96A00B98966 /* Investor.swift */; };
 		7DFC5FCE26BAF98300B98966 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC5FCD26BAF98300B98966 /* Portfolio.swift */; };
+		7DFC5FD526BB01EB00B98966 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC5FD426BB01EB00B98966 /* LoginUseCase.swift */; };
+		7DFC5FDA26BB034800B98966 /* RemoteLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC5FD926BB034800B98966 /* RemoteLoginUseCase.swift */; };
+		7DFC5FDC26BB036000B98966 /* LoginResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC5FDB26BB036000B98966 /* LoginResource.swift */; };
 		7DFD824B26B09AF90027A668 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824A26B09AF90027A668 /* Coordinator.swift */; };
 		7DFD824D26B09DD00027A668 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */; };
 		7DFD824F26B0A6AE0027A668 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */; };
@@ -96,6 +99,9 @@
 		7DFC5FC926BAF95900B98966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7DFC5FCB26BAF96A00B98966 /* Investor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Investor.swift; sourceTree = "<group>"; };
 		7DFC5FCD26BAF98300B98966 /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
+		7DFC5FD426BB01EB00B98966 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		7DFC5FD926BB034800B98966 /* RemoteLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoginUseCase.swift; sourceTree = "<group>"; };
+		7DFC5FDB26BB036000B98966 /* LoginResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResource.swift; sourceTree = "<group>"; };
 		7DFD824A26B09AF90027A668 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7DFD824C26B09DD00027A668 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
 		7DFD824E26B0A6AE0027A668 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -155,7 +161,6 @@
 			children = (
 				7D56B4C4269DB45D00FACD8E /* HTTPMethod.swift */,
 				7D56B4C6269DB48800FACD8E /* Networking.swift */,
-				7DD118E026A1CA5E00881FE5 /* AppStorage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -193,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				7DB7E8C226B9DE8A00FCC52F /* Features */,
-				7DFD824926B09AC90027A668 /* Coordinator */,
+				7DB7E8D426B9EBEA00FCC52F /* Utils */,
 				7D56B4C3269DB44D00FACD8E /* Networking */,
 				7D56B4B4269D4A4700FACD8E /* Resources */,
 				7D56B4C8269DB4BF00FACD8E /* Supporting Extensions */,
@@ -206,8 +211,8 @@
 		7DB7E8C226B9DE8A00FCC52F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				7DFC5FCF26BB001F00B98966 /* App */,
 				7DFC5FB826BADCA000B98966 /* SignIn */,
-				7DB7E8D426B9EBEA00FCC52F /* Common */,
 				7DB7E8C326B9DF7100FCC52F /* Enterprises */,
 			);
 			path = Features;
@@ -328,12 +333,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		7DB7E8D426B9EBEA00FCC52F /* Common */ = {
+		7DB7E8D426B9EBEA00FCC52F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				7DA708D226A9C2F200DE68A7 /* BaseViewController.swift */,
+				7DD118E026A1CA5E00881FE5 /* AppStorage.swift */,
+				7DFD824A26B09AF90027A668 /* Coordinator.swift */,
 			);
-			path = Common;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7DB7E8D526B9EF1B00FCC52F /* Data */ = {
@@ -441,6 +448,7 @@
 		7DFC5FBB26BAE04F00B98966 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				7DFC5FD326BB01D200B98966 /* Protocols */,
 				7DFC5FC326BAE1FF00B98966 /* Models */,
 			);
 			path = Domain;
@@ -461,6 +469,8 @@
 		7DFC5FBD26BAE06700B98966 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7DFC5FD726BB032A00B98966 /* Resources */,
+				7DFC5FD626BB032200B98966 /* UseCases */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -519,14 +529,61 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		7DFD824926B09AC90027A668 /* Coordinator */ = {
+		7DFC5FCF26BB001F00B98966 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				7DFD824A26B09AF90027A668 /* Coordinator.swift */,
+				7DFC5FD026BB003E00B98966 /* Presenting */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7DFC5FD026BB003E00B98966 /* Presenting */ = {
+			isa = PBXGroup;
+			children = (
+				7DFC5FD226BB005400B98966 /* Coordinators */,
+				7DFC5FD126BB004B00B98966 /* Protocols */,
+			);
+			path = Presenting;
+			sourceTree = "<group>";
+		};
+		7DFC5FD126BB004B00B98966 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
 				7DDC83CA26B874A700C43483 /* AppCoordinating.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7DFC5FD226BB005400B98966 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
 				7DDC83CC26B874BA00C43483 /* AppCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		7DFC5FD326BB01D200B98966 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7DFC5FD426BB01EB00B98966 /* LoginUseCase.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7DFC5FD626BB032200B98966 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				7DFC5FD926BB034800B98966 /* RemoteLoginUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		7DFC5FD726BB032A00B98966 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7DFC5FDB26BB036000B98966 /* LoginResource.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F17CD744749F6ABC1838A808 /* Pods */ = {
@@ -671,6 +728,8 @@
 			files = (
 				7D56B4C0269DB40500FACD8E /* Login.swift in Sources */,
 				7DFC5FC526BAE86400B98966 /* LoginPresenting.swift in Sources */,
+				7DFC5FDA26BB034800B98966 /* RemoteLoginUseCase.swift in Sources */,
+				7DFC5FDC26BB036000B98966 /* LoginResource.swift in Sources */,
 				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
 				7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */,
 				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
@@ -680,6 +739,7 @@
 				7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */,
 				7DDC83CB26B874A700C43483 /* AppCoordinating.swift in Sources */,
 				7D0B577726B301C100B6D7C9 /* SearchCoordinator.swift in Sources */,
+				7DFC5FD526BB01EB00B98966 /* LoginUseCase.swift in Sources */,
 				7DB7E8D326B9E86B00FCC52F /* SearchViewable.swift in Sources */,
 				7DFC5FC726BAE87100B98966 /* LoginViewable.swift in Sources */,
 				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,

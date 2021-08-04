@@ -7,19 +7,6 @@
 
 import UIKit
 
-protocol LoginPresenting: AnyObject {
-    func signIn(email: String, password: String)
-    func attach(view: LoginViewable)
-    func validateEmail(email: String)
-    func validatePassword(password: String)
-}
-
-protocol LoginViewable: AnyObject {
-    func showError(error: Error)
-    func isEmailValid(_ isValid: Bool)
-    func isPasswordValid(_ isValid: Bool)
-}
-
 class LoginPresenter: LoginPresenting {
     weak var view: LoginViewable?
     private let networking: Networking
@@ -62,5 +49,4 @@ class LoginPresenter: LoginPresenting {
             }
         }
     }
-    
 }

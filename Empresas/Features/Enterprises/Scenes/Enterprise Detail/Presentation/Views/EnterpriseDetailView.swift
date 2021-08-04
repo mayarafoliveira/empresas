@@ -18,7 +18,7 @@ class EnterpriseDetailView: UIView {
     
     lazy var enterpriseName: UILabel = {
         let enterpriseName = UILabel()
-        enterpriseName.text = enterprise?.enterprise_name
+        enterpriseName.text = enterprise?.enterpriseName
         enterpriseName.textAlignment = .center
         enterpriseName.textColor = .black
         enterpriseName.font = UIFont.systemFont(ofSize: 20, weight: .bold)

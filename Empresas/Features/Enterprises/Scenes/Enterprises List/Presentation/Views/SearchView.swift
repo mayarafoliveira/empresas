@@ -190,7 +190,7 @@ extension SearchView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = self.enterprises[indexPath.row].enterprise_name
+        cell.textLabel?.text = self.enterprises[indexPath.row].enterpriseName
         return cell
     }
     

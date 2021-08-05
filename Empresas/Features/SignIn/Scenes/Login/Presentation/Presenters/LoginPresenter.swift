@@ -11,10 +11,18 @@ class LoginPresenter: LoginPresenting {
     weak var view: LoginViewable?
     private let loginUseCase: LoginUseCase
     private let coordinator: LoginCoordinating
+    private let emailValidator: EmailValidatable
+    private let passwordValidator: PasswordValidatable
     
-    init(coordinator: LoginCoordinating, loginUseCase: LoginUseCase) {
+    init(coordinator: LoginCoordinating,
+         loginUseCase: LoginUseCase,
+         emailValidator: EmailValidatable,
+         passwordValidator: PasswordValidatable) {
+        
         self.coordinator = coordinator
         self.loginUseCase = loginUseCase
+        self.emailValidator = emailValidator
+        self.passwordValidator = passwordValidator
     }
     
     func attach(view: LoginViewable) {
@@ -22,16 +30,25 @@ class LoginPresenter: LoginPresenting {
     }
     
     func validateEmail(email: String) {
-        let isValid = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: email)
-        view?.isEmailValid(isValid)
+        switch emailValidator.validate(email: email) {
+        case .valid:
+            view?.isEmailValid(true)
+        case .invalid:
+            view?.isEmailValid(false)
+        }
     }
     
     func validatePassword(password: String) {
-        let isValid = password.count >= 8
-        view?.isPasswordValid(isValid)
+        switch passwordValidator.validate(password: password) {
+        case .valid:
+            view?.isPasswordValid(true)
+        case .invalid:
+            view?.isPasswordValid(false)
+        }
     }
     
     func signIn(email: String, password: String) {
+        
         loginUseCase.login(email: email, password: password) { [weak self] success, error  in
             
             if success {

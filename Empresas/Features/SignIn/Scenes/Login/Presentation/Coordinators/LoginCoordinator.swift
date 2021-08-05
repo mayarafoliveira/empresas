@@ -20,7 +20,7 @@ struct LoginCoordinator: Coordinator, LoginCoordinating {
         
         let presenter = LoginPresenter(
             coordinator: self,
-            loginUseCase: RemoteLoginUseCase(resource: .shared)
+            loginUseCase: RemoteLoginUseCase(resource: .shared), emailValidator: EmailValidator(), passwordValidator: PasswordValidator()
         )
         
         rootViewController.setViewControllers(

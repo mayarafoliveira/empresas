@@ -14,17 +14,18 @@ struct LoginResource {
     func login(order: Login, result: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
         do {
+            
             let encoded = try JSONEncoder().encode(order)
             let link = "https://empresas.ioasys.com.br/api/v1/users/auth/sign_in"
             guard let url = URL(string: link) else { return }
             var request = URLRequest(url: url)
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpMethod = HTTPMethod.post.rawValue
+            request.httpMethod = "POST"
             request.httpBody = encoded
 
             URLSession.shared.dataTask(
                 with: request,
-                completionHandler: { _, response, _ in
+                completionHandler: { data, response, error in
                     if let response = response as? HTTPURLResponse {
                         
                         let headers = response.allHeaderFields
@@ -40,6 +41,7 @@ struct LoginResource {
                         
                         AppStorage.shared.authorization = userAccess
                     }
+                    result(data, response, error)
                 }
             ).resume()
         } catch let error {

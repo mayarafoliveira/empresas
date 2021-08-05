@@ -9,14 +9,12 @@ import UIKit
 
 class SearchPresenter: SearchPresenting {
     weak var view: SearchViewable?
-    private let networking: Networking
-    private let appStorage: AppStorage
+    private let searchUseCase: SearchUseCase
     private let coordinator: SearchCoordinating
     
-    init(coordinator: SearchCoordinating, networking: Networking, appStorage: AppStorage) {
+    init(coordinator: SearchCoordinating, searchUseCase: SearchUseCase) {
         self.coordinator = coordinator
-        self.networking = networking
-        self.appStorage = appStorage
+        self.searchUseCase = searchUseCase
     }
     
     func attach(view: SearchViewable) {
@@ -24,7 +22,7 @@ class SearchPresenter: SearchPresenting {
     }
     
     func searchFor(_ enterprise: String) {
-        networking.searchEnterprise(text: Search(enterpriseSearched: enterprise)) { (enterprises, error) in
+        searchUseCase.searchEnterprise(text: Search(enterpriseSearched: enterprise)) { (enterprises, error) in
 
             if let error = error { print(error) }
             guard let enterprises = enterprises?.enterprises else { return }

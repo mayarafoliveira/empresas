@@ -11,6 +11,15 @@
 		7D0B577526B301B200B6D7C9 /* SearchCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B577426B301B200B6D7C9 /* SearchCoordinating.swift */; };
 		7D0B577726B301C100B6D7C9 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B577626B301C100B6D7C9 /* SearchCoordinator.swift */; };
 		7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */; };
+		7D3F06A426BC15BF00EAC26A /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06A326BC15BF00EAC26A /* SearchUseCase.swift */; };
+		7D3F06A826BC16A600EAC26A /* SearchResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06A726BC16A600EAC26A /* SearchResource.swift */; };
+		7D3F06AA26BC16C000EAC26A /* RemoteSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06A926BC16C000EAC26A /* RemoteSearchUseCase.swift */; };
+		7D3F06AD26BC502C00EAC26A /* EmailValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06AC26BC502C00EAC26A /* EmailValidatable.swift */; };
+		7D3F06AF26BC506000EAC26A /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06AE26BC506000EAC26A /* EmailValidator.swift */; };
+		7D3F06B126BC50C000EAC26A /* EmailValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06B026BC50C000EAC26A /* EmailValidatorError.swift */; };
+		7D3F06B326BC631F00EAC26A /* PasswordValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06B226BC631F00EAC26A /* PasswordValidatorError.swift */; };
+		7D3F06B526BC63CB00EAC26A /* PasswordValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06B426BC63CB00EAC26A /* PasswordValidatable.swift */; };
+		7D3F06B726BC674800EAC26A /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F06B626BC674800EAC26A /* PasswordValidator.swift */; };
 		7D4661B426B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4661B326B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift */; };
 		7D4661B626B1D07700FE6257 /* EnterpriseDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4661B526B1D07700FE6257 /* EnterpriseDetailCoordinator.swift */; };
 		7D56B4B9269DB35900FACD8E /* EnterpriseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */; };
@@ -60,6 +69,15 @@
 		7D0B577426B301B200B6D7C9 /* SearchCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinating.swift; sourceTree = "<group>"; };
 		7D0B577626B301C100B6D7C9 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		7D11F0F4269F1EE400698124 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		7D3F06A326BC15BF00EAC26A /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
+		7D3F06A726BC16A600EAC26A /* SearchResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResource.swift; sourceTree = "<group>"; };
+		7D3F06A926BC16C000EAC26A /* RemoteSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSearchUseCase.swift; sourceTree = "<group>"; };
+		7D3F06AC26BC502C00EAC26A /* EmailValidatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatable.swift; sourceTree = "<group>"; };
+		7D3F06AE26BC506000EAC26A /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		7D3F06B026BC50C000EAC26A /* EmailValidatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorError.swift; sourceTree = "<group>"; };
+		7D3F06B226BC631F00EAC26A /* PasswordValidatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorError.swift; sourceTree = "<group>"; };
+		7D3F06B426BC63CB00EAC26A /* PasswordValidatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatable.swift; sourceTree = "<group>"; };
+		7D3F06B626BC674800EAC26A /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		7D4661B326B1CE7500FE6257 /* EnterpriseDetailCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailCoordinating.swift; sourceTree = "<group>"; };
 		7D4661B526B1D07700FE6257 /* EnterpriseDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailCoordinator.swift; sourceTree = "<group>"; };
 		7D56B4B8269DB35900FACD8E /* EnterpriseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseDetailViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +146,39 @@
 				842818898E3BE931E855B58C /* Pods_Empresas.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D3F06A226BC159600EAC26A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7D3F06A326BC15BF00EAC26A /* SearchUseCase.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7D3F06A526BC165600EAC26A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				7D3F06A926BC16C000EAC26A /* RemoteSearchUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		7D3F06A626BC166A00EAC26A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D3F06A726BC16A600EAC26A /* SearchResource.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7D3F06AB26BC4FFA00EAC26A /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				7D3F06AE26BC506000EAC26A /* EmailValidator.swift */,
+				7D3F06B626BC674800EAC26A /* PasswordValidator.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		7D56B4B4269D4A4700FACD8E /* Resources */ = {
@@ -248,6 +299,8 @@
 		7DB7E8C626B9DF9A00FCC52F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7D3F06A626BC166A00EAC26A /* Resources */,
+				7D3F06A526BC165600EAC26A /* UseCases */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -267,6 +320,7 @@
 		7DB7E8C826B9DFB100FCC52F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				7D3F06A226BC159600EAC26A /* Protocols */,
 				7DB7E8CF26B9E57E00FCC52F /* Models */,
 			);
 			path = Domain;
@@ -448,6 +502,7 @@
 		7DFC5FBB26BAE04F00B98966 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				7D3F06AB26BC4FFA00EAC26A /* Validators */,
 				7DFC5FD326BB01D200B98966 /* Protocols */,
 				7DFC5FC326BAE1FF00B98966 /* Models */,
 			);
@@ -525,6 +580,8 @@
 				7DFC5FC926BAF95900B98966 /* User.swift */,
 				7DFC5FCB26BAF96A00B98966 /* Investor.swift */,
 				7DFC5FCD26BAF98300B98966 /* Portfolio.swift */,
+				7D3F06B026BC50C000EAC26A /* EmailValidatorError.swift */,
+				7D3F06B226BC631F00EAC26A /* PasswordValidatorError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -566,6 +623,8 @@
 			isa = PBXGroup;
 			children = (
 				7DFC5FD426BB01EB00B98966 /* LoginUseCase.swift */,
+				7D3F06AC26BC502C00EAC26A /* EmailValidatable.swift */,
+				7D3F06B426BC63CB00EAC26A /* PasswordValidatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -726,11 +785,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D3F06AD26BC502C00EAC26A /* EmailValidatable.swift in Sources */,
 				7D56B4C0269DB40500FACD8E /* Login.swift in Sources */,
 				7DFC5FC526BAE86400B98966 /* LoginPresenting.swift in Sources */,
 				7DFC5FDA26BB034800B98966 /* RemoteLoginUseCase.swift in Sources */,
 				7DFC5FDC26BB036000B98966 /* LoginResource.swift in Sources */,
 				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
+				7D3F06B126BC50C000EAC26A /* EmailValidatorError.swift in Sources */,
 				7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */,
 				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
 				7DDC83CD26B874BA00C43483 /* AppCoordinator.swift in Sources */,
@@ -741,26 +802,33 @@
 				7D0B577726B301C100B6D7C9 /* SearchCoordinator.swift in Sources */,
 				7DFC5FD526BB01EB00B98966 /* LoginUseCase.swift in Sources */,
 				7DB7E8D326B9E86B00FCC52F /* SearchViewable.swift in Sources */,
+				7D3F06B326BC631F00EAC26A /* PasswordValidatorError.swift in Sources */,
 				7DFC5FC726BAE87100B98966 /* LoginViewable.swift in Sources */,
 				7D11F0F5269F1EE400698124 /* TextFieldExtension.swift in Sources */,
 				7D5C5AB426A728450022FCBE /* LoginPresenter.swift in Sources */,
 				7D56B4D2269DB67E00FACD8E /* LoginView.swift in Sources */,
 				7D5775CA269D45C300C1E79D /* AppDelegate.swift in Sources */,
+				7D3F06AA26BC16C000EAC26A /* RemoteSearchUseCase.swift in Sources */,
 				7D0B577526B301B200B6D7C9 /* SearchCoordinating.swift in Sources */,
 				7DB7E8DF26BA19A100FCC52F /* SearchResult.swift in Sources */,
+				7D3F06B726BC674800EAC26A /* PasswordValidator.swift in Sources */,
 				7DFC5FCC26BAF96A00B98966 /* Investor.swift in Sources */,
+				7D3F06A826BC16A600EAC26A /* SearchResource.swift in Sources */,
 				7D56B4B9269DB35900FACD8E /* EnterpriseDetailViewController.swift in Sources */,
 				7D56B4C5269DB45D00FACD8E /* HTTPMethod.swift in Sources */,
 				7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */,
 				7D56B4CC269DB50500FACD8E /* ImageExtension.swift in Sources */,
+				7D3F06B526BC63CB00EAC26A /* PasswordValidatable.swift in Sources */,
 				7D4661B626B1D07700FE6257 /* EnterpriseDetailCoordinator.swift in Sources */,
 				7DA708D326A9C2F200DE68A7 /* BaseViewController.swift in Sources */,
 				7DFC5FCE26BAF98300B98966 /* Portfolio.swift in Sources */,
 				7D56B4C2269DB41E00FACD8E /* Search.swift in Sources */,
 				7DFC5FCA26BAF95900B98966 /* User.swift in Sources */,
 				7D56B4BB269DB38800FACD8E /* LoginViewController.swift in Sources */,
+				7D3F06AF26BC506000EAC26A /* EmailValidator.swift in Sources */,
 				7DFD824F26B0A6AE0027A668 /* LoginCoordinator.swift in Sources */,
 				7D56B4CA269DB4DD00FACD8E /* ColorExtension.swift in Sources */,
+				7D3F06A426BC15BF00EAC26A /* SearchUseCase.swift in Sources */,
 				7DFD824B26B09AF90027A668 /* Coordinator.swift in Sources */,
 				7DB7E8E126BA23E000FCC52F /* Enterprise.swift in Sources */,
 				7D56B4D4269DB6B100FACD8E /* SearchView.swift in Sources */,

@@ -22,7 +22,6 @@ struct EnterpriseDetailCoordinator: Coordinator, EnterpriseDetailCoordinating {
         
         let presenter = EnterpriseDetailPresenter(
             coordinator: self,
-            networking: Networking(),
             appStorage: .shared,
             enterprise: enterprise
         )

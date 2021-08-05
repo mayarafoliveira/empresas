@@ -27,8 +27,6 @@
 		7D56B4BD269DB3A500FACD8E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */; };
 		7D56B4C0269DB40500FACD8E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4BF269DB40500FACD8E /* Login.swift */; };
 		7D56B4C2269DB41E00FACD8E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4C1269DB41E00FACD8E /* Search.swift */; };
-		7D56B4C5269DB45D00FACD8E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4C4269DB45D00FACD8E /* HTTPMethod.swift */; };
-		7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4C6269DB48800FACD8E /* Networking.swift */; };
 		7D56B4CA269DB4DD00FACD8E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4C9269DB4DD00FACD8E /* ColorExtension.swift */; };
 		7D56B4CC269DB50500FACD8E /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4CB269DB50500FACD8E /* ImageExtension.swift */; };
 		7D56B4CE269DB62F00FACD8E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56B4CD269DB62F00FACD8E /* ViewExtension.swift */; };
@@ -85,8 +83,6 @@
 		7D56B4BC269DB3A500FACD8E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7D56B4BF269DB40500FACD8E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7D56B4C1269DB41E00FACD8E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		7D56B4C4269DB45D00FACD8E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		7D56B4C6269DB48800FACD8E /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7D56B4C9269DB4DD00FACD8E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		7D56B4CB269DB50500FACD8E /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		7D56B4CD269DB62F00FACD8E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -207,15 +203,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7D56B4C3269DB44D00FACD8E /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				7D56B4C4269DB45D00FACD8E /* HTTPMethod.swift */,
-				7D56B4C6269DB48800FACD8E /* Networking.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		7D56B4C8269DB4BF00FACD8E /* Supporting Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +237,6 @@
 			children = (
 				7DB7E8C226B9DE8A00FCC52F /* Features */,
 				7DB7E8D426B9EBEA00FCC52F /* Utils */,
-				7D56B4C3269DB44D00FACD8E /* Networking */,
 				7D56B4B4269D4A4700FACD8E /* Resources */,
 				7D56B4C8269DB4BF00FACD8E /* Supporting Extensions */,
 				7D56B4B5269D4AF400FACD8E /* System Delegate */,
@@ -790,7 +776,6 @@
 				7DFC5FC526BAE86400B98966 /* LoginPresenting.swift in Sources */,
 				7DFC5FDA26BB034800B98966 /* RemoteLoginUseCase.swift in Sources */,
 				7DFC5FDC26BB036000B98966 /* LoginResource.swift in Sources */,
-				7D56B4C7269DB48800FACD8E /* Networking.swift in Sources */,
 				7D3F06B126BC50C000EAC26A /* EmailValidatorError.swift in Sources */,
 				7D5C5AB826A728790022FCBE /* EnterpriseDetailPresenter.swift in Sources */,
 				7D5C5AB626A7285A0022FCBE /* SearchPresenter.swift in Sources */,
@@ -815,7 +800,6 @@
 				7DFC5FCC26BAF96A00B98966 /* Investor.swift in Sources */,
 				7D3F06A826BC16A600EAC26A /* SearchResource.swift in Sources */,
 				7D56B4B9269DB35900FACD8E /* EnterpriseDetailViewController.swift in Sources */,
-				7D56B4C5269DB45D00FACD8E /* HTTPMethod.swift in Sources */,
 				7DD118E326A1CF7400881FE5 /* UserAccess.swift in Sources */,
 				7D56B4CC269DB50500FACD8E /* ImageExtension.swift in Sources */,
 				7D3F06B526BC63CB00EAC26A /* PasswordValidatable.swift in Sources */,

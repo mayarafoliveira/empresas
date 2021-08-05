@@ -19,13 +19,11 @@ protocol EnterpriseDetailViewable: AnyObject {
 class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
     var enterprise: Enterprise
     weak var view: EnterpriseDetailViewable?
-    private let networking: Networking
     private let appStorage: AppStorage
     private let coordinator: EnterpriseDetailCoordinating
     
-    init(coordinator: EnterpriseDetailCoordinating, networking: Networking, appStorage: AppStorage, enterprise: Enterprise) {
+    init(coordinator: EnterpriseDetailCoordinating, appStorage: AppStorage, enterprise: Enterprise) {
         self.coordinator = coordinator
-        self.networking = networking
         self.appStorage = appStorage
         self.enterprise = enterprise
     }

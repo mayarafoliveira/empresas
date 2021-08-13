@@ -33,6 +33,9 @@
 		7D5775D2269D45C400C1E79D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D5775D5269D45C400C1E79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D5775D7269D45C400C1E79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D5DB31F26C709A9000BDF88 /* Search */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Search; path = Features/Search; sourceTree = SOURCE_ROOT; };
+		7D5DB32026C709A9000BDF88 /* Signing */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Signing; path = Features/Signing; sourceTree = SOURCE_ROOT; };
+		7D5DB32126C709A9000BDF88 /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; name = App; path = Features/App; sourceTree = SOURCE_ROOT; };
 		7D618A9026C6A6A10098F3C7 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +92,7 @@
 		7D5775BD269D45C300C1E79D = {
 			isa = PBXGroup;
 			children = (
+				7D5DB31E26C70970000BDF88 /* Features */,
 				7D415DEC26C6F19D002B5ED3 /* Networking */,
 				7D415DEB26C6F17E002B5ED3 /* EmpresasUI */,
 				7D415DEA26C6F172002B5ED3 /* Domain */,
@@ -115,6 +119,16 @@
 				7D56B4B6269D4CB400FACD8E /* Supporting Files */,
 			);
 			path = Empresas;
+			sourceTree = "<group>";
+		};
+		7D5DB31E26C70970000BDF88 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				7D5DB32126C709A9000BDF88 /* App */,
+				7D5DB31F26C709A9000BDF88 /* Search */,
+				7D5DB32026C709A9000BDF88 /* Signing */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

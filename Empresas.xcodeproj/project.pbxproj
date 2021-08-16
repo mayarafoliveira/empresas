@@ -99,6 +99,7 @@
 				7D618A9026C6A6A10098F3C7 /* Common */,
 				7D5775C8269D45C300C1E79D /* Empresas */,
 				7D5775C7269D45C300C1E79D /* Products */,
+				7D933FA226CAB0BB00457EFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +130,13 @@
 				7D5DB32026C709A9000BDF88 /* Signing */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		7D933FA226CAB0BB00457EFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +381,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 58RN6U59UJ;
 				INFOPLIST_FILE = "Empresas/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,6 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 58RN6U59UJ;
 				INFOPLIST_FILE = "Empresas/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

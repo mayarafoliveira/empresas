@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct EnterpriseType: Decodable {
-    var id: Int
-    var enterpriseTypeName: String
+public struct EnterpriseType: Decodable {
+    public var id: Int
+    public var enterpriseTypeName: String
 }
 
 extension EnterpriseType {
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id
         case enterpriseTypeName = "enterprise_type_name"
     }

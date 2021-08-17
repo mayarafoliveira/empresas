@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import Common
 
-struct AppCoordinator: Coordinator, AppCoordinating {
+public struct AppCoordinator: Coordinator, AppCoordinating {
     
     private var window: UIWindow?
+    private weak var delegate: AppCoordinatorDelegate?
     
-    init(window: UIWindow) {
+    public init(window: UIWindow, delegate: AppCoordinatorDelegate) {
         self.window = window
+        self.delegate = delegate
     }
     
-    func start() {
+    public func start() {
         if AppStorage.shared.authorization?.accessToken == nil {
             showLogin()
         } else {
@@ -23,15 +26,15 @@ struct AppCoordinator: Coordinator, AppCoordinating {
         }
     }
     
-    func showLogin() {
+    public func showLogin() {
         let rootViewController = UINavigationController()
-        LoginCoordinator(rootViewController: rootViewController).start()
+        delegate?.showLogin(rootViewController: rootViewController)
         window?.rootViewController = rootViewController
     }
     
-    func showSearch() {
+    public func showSearch() {
         let rootViewController = UINavigationController()
-        SearchCoordinator(rootViewController: rootViewController).start()
+        delegate?.showSearch(rootViewController: rootViewController)
         window?.rootViewController = rootViewController
     }
     

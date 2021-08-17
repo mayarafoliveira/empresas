@@ -13,7 +13,7 @@ protocol LoginViewDelegate: AnyObject {
     func validatePassword(password: String)
 }
 
-class LoginView: UIView {
+open class LoginView: UIView {
     
     weak var delegate: LoginViewDelegate?
     private var emailIsEnabled: Bool = false
@@ -197,7 +197,7 @@ class LoginView: UIView {
         return signInButton
     }()
 
-    override init(frame: CGRect) {
+    open override init(frame: CGRect) {
         super.init(frame: .zero)
     
         self.setBackgroundColor(to: .white)

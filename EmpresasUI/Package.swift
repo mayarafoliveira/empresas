@@ -17,6 +17,8 @@ let package = Package(
     targets: [
         .target(
             name: "EmpresasUI",
-            dependencies: [])
+            dependencies: [],
+            resources: [.process("Resouces")]
+        )
     ]
 )

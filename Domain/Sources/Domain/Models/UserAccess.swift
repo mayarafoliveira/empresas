@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct UserAccess: Codable {
-    var uid: String?
-    var client: String?
-    var accessToken: String?
+public struct UserAccess: Codable {
+    public var uid: String?
+    public var client: String?
+    public var accessToken: String?
 }

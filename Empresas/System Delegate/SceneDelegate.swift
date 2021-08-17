@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import App
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         guard let window = window else { return }
-        self.appCoordinator = AppCoordinator(window: window)
+        self.appCoordinator = AppCoordinator(window: window, delegate: self)
         self.appCoordinator?.start()
         
         window.makeKeyAndVisible()
@@ -35,5 +36,16 @@ extension SceneDelegate {
     
     func showSearch() {
         appCoordinator?.showSearch()
+    }
+}
+
+extension SceneDelegate: AppCoordinatorDelegate {
+    
+    func showLogin(rootViewController: UINavigationController) {
+        // loginCoordinator.start()
+    }
+    
+    func showSearch(rootViewController: UINavigationController) {
+        // searchCoordinator.start()
     }
 }

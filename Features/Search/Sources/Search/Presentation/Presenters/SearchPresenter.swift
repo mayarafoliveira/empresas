@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchPresenter: SearchPresenting {
+open class SearchPresenter: SearchPresenting {
     weak var view: SearchViewable?
     private let searchUseCase: SearchUseCase
     private let coordinator: SearchCoordinating

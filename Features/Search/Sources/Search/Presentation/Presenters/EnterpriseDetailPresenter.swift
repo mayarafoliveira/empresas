@@ -16,7 +16,7 @@ protocol EnterpriseDetailViewable: AnyObject {
     
 }
 
-class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
+open class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
     var enterprise: Enterprise
     weak var view: EnterpriseDetailViewable?
     private let coordinator: EnterpriseDetailCoordinating

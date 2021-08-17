@@ -12,11 +12,14 @@ let package = Package(
             targets: ["Common"]),
     ],
     dependencies: [
-        
+        .package(
+            name: "Domain",
+            path: "../Domain"
+        )
     ],
     targets: [
         .target(
             name: "Common",
-            dependencies: [])
+            dependencies: ["Domain"])
     ]
 )

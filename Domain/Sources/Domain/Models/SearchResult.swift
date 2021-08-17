@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct SearchResult: Decodable {
-    var enterprises: [Enterprise]
+public struct SearchResult: Decodable {
+    public var enterprises: [Enterprise]
 }

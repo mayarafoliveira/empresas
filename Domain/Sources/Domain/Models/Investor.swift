@@ -7,23 +7,23 @@
 
 import Foundation
 
-struct Investor: Decodable {
-    var id: Int
-    var investorName: String
-    var email: String
-    var city: String
-    var country: String
-    var balance: Double
-    var photo: String?
-    var portfolio: Portfolio
+public struct Investor: Decodable {
+    public var id: Int
+    public var investorName: String
+    public var email: String
+    public var city: String
+    public var country: String
+    public var balance: Double
+    public var photo: String?
+    public var portfolio: Portfolio
     
-    var portfolioValue: Double
-    var firstAccess: Bool
-    var superAngel: Bool
+    public var portfolioValue: Double
+    public var firstAccess: Bool
+    public var superAngel: Bool
 }
 
 extension Investor {
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id
         case investorName = "investor_name"
         case email

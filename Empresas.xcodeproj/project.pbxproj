@@ -17,6 +17,12 @@
 		7D5775D6269D45C400C1E79D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5775D4269D45C400C1E79D /* LaunchScreen.storyboard */; };
 		7D618A9226C6A6E10098F3C7 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 7D618A9126C6A6E10098F3C7 /* Common */; };
 		7D618A9526C6A7BF0098F3C7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7D618A9426C6A7BF0098F3C7 /* IQKeyboardManagerSwift */; };
+		7D75C87626CBFB8400334D5D /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 7D75C87526CBFB8400334D5D /* App */; };
+		7D75C87826CBFB8400334D5D /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 7D75C87726CBFB8400334D5D /* Domain */; };
+		7D75C87A26CBFB8400334D5D /* EmpresasUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7D75C87926CBFB8400334D5D /* EmpresasUI */; };
+		7D75C87C26CBFB8400334D5D /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 7D75C87B26CBFB8400334D5D /* Networking */; };
+		7D75C87E26CBFB8400334D5D /* Search in Frameworks */ = {isa = PBXBuildFile; productRef = 7D75C87D26CBFB8400334D5D /* Search */; };
+		7D75C88026CBFB8400334D5D /* Signing in Frameworks */ = {isa = PBXBuildFile; productRef = 7D75C87F26CBFB8400334D5D /* Signing */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +50,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D75C87C26CBFB8400334D5D /* Networking in Frameworks */,
+				7D75C87A26CBFB8400334D5D /* EmpresasUI in Frameworks */,
+				7D75C87626CBFB8400334D5D /* App in Frameworks */,
 				7D618A9226C6A6E10098F3C7 /* Common in Frameworks */,
+				7D75C87826CBFB8400334D5D /* Domain in Frameworks */,
 				7D618A9526C6A7BF0098F3C7 /* IQKeyboardManagerSwift in Frameworks */,
+				7D75C88026CBFB8400334D5D /* Signing in Frameworks */,
+				7D75C87E26CBFB8400334D5D /* Search in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +171,12 @@
 			packageProductDependencies = (
 				7D618A9126C6A6E10098F3C7 /* Common */,
 				7D618A9426C6A7BF0098F3C7 /* IQKeyboardManagerSwift */,
+				7D75C87526CBFB8400334D5D /* App */,
+				7D75C87726CBFB8400334D5D /* Domain */,
+				7D75C87926CBFB8400334D5D /* EmpresasUI */,
+				7D75C87B26CBFB8400334D5D /* Networking */,
+				7D75C87D26CBFB8400334D5D /* Search */,
+				7D75C87F26CBFB8400334D5D /* Signing */,
 			);
 			productName = Empresas;
 			productReference = 7D5775C6269D45C300C1E79D /* Empresas.app */;
@@ -458,6 +476,30 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D618A9326C6A7BF0098F3C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		7D75C87526CBFB8400334D5D /* App */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = App;
+		};
+		7D75C87726CBFB8400334D5D /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		7D75C87926CBFB8400334D5D /* EmpresasUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EmpresasUI;
+		};
+		7D75C87B26CBFB8400334D5D /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		7D75C87D26CBFB8400334D5D /* Search */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Search;
+		};
+		7D75C87F26CBFB8400334D5D /* Signing */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Signing;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

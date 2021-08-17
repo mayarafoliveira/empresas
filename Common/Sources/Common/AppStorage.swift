@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Domain
 
-class AppStorage {
+public class AppStorage {
     
-    static let shared = AppStorage()
+    public static let shared = AppStorage()
     private let userAccessKey = "userAccess"
     
-    var authorization: UserAccess? {
+    public var authorization: UserAccess? {
         
         get {
             let userDefaults = UserDefaults.standard

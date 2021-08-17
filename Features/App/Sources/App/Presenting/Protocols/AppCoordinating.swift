@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AppCoordinating {
+public protocol AppCoordinating {
     func showLogin()
     func showSearch()
 }

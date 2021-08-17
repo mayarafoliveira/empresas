@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PasswordValidatorError {
+public enum PasswordValidatorError {
     case valid
     case invalid
 }

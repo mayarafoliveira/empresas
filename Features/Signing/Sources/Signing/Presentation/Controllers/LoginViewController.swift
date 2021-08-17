@@ -7,12 +7,12 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+open class LoginViewController: BaseViewController {
     
     private let presenter: LoginPresenting
     private lazy var loginView = LoginView()
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomNavigation()
     }
@@ -27,12 +27,12 @@ class LoginViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
+    open override func loadView() {
         loginView.delegate = self
         view = loginView
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
         return.lightContent
     }
 }

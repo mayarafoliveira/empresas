@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User: Decodable {
-    var investor: Investor
-    var enterprise: String?
-    var success: Bool
+public struct User: Decodable {
+    public var investor: Investor
+    public var enterprise: String?
+    public var success: Bool
 }

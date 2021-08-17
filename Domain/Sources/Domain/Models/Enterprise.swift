@@ -7,26 +7,26 @@
 
 import Foundation
 
-struct Enterprise: Decodable {
-    var id: Int
-    var emailEnterprise: String?
-    var facebook: String?
-    var twitter: String?
-    var linkedin: String?
-    var phone: String?
-    var ownEnterprise: Bool
-    var enterpriseName: String
-    var photo: String
-    var description: String
-    var city: String
-    var country: String
-    var value: Int
-    var sharePrice: Double
-    var enterpriseType: EnterpriseType
+public struct Enterprise: Decodable {
+    public var id: Int
+    public var emailEnterprise: String?
+    public var facebook: String?
+    public var twitter: String?
+    public var linkedin: String?
+    public var phone: String?
+    public var ownEnterprise: Bool
+    public var enterpriseName: String
+    public var photo: String
+    public var description: String
+    public var city: String
+    public var country: String
+    public var value: Int
+    public var sharePrice: Double
+    public var enterpriseType: EnterpriseType
 }
 
 extension Enterprise {
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id
         case emailEnterprise = "email_enterprise"
         case facebook

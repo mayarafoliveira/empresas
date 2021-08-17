@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Portfolio: Decodable {
-    var enterprisesNumber: Int
-    var enterprises: [String]
+public struct Portfolio: Decodable {
+    public var enterprisesNumber: Int
+    public var enterprises: [String]
 }
 
 extension Portfolio {
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case enterprisesNumber = "enterprises_number"
         case enterprises
     }

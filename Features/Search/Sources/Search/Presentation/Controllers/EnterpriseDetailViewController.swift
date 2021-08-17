@@ -7,17 +7,17 @@
 
 import UIKit
 
-class EnterpriseDetailViewController: BaseViewController {
+open class EnterpriseDetailViewController: BaseViewController {
     
     private let presenter: EnterpriseDetailPresenting
     private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: presenter.enterprise)
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomNavigation()
     }
     
-    override func loadView() {
+    open override func loadView() {
         enterpriseDetailView.delegate = self
         view = enterpriseDetailView
     }

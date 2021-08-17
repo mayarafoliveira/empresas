@@ -7,7 +7,8 @@
 
 import UIKit
 
-class LoginPresenter: LoginPresenting {
+
+public class LoginPresenter: LoginPresenting {
     weak var view: LoginViewable?
     private let loginUseCase: LoginUseCase
     private let coordinator: LoginCoordinating

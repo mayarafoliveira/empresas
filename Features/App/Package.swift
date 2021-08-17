@@ -15,11 +15,19 @@ let package = Package(
         .package(
             name: "Domain",
             path: "../../Domain"
+        ),
+        .package(
+            name: "Common",
+            path: "../../Common"
         )
     ],
     targets: [
         .target(
             name: "App",
-            dependencies: ["Domain"])
+            dependencies: [
+                "Domain",
+                "Common"
+            ]
+        )
     ]
 )

@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Domain
 
-protocol EnterpriseDetailDelegate: AnyObject {
+public protocol EnterpriseDetailDelegate: AnyObject {
 
 }
 
-class EnterpriseDetailView: UIView {
+public class EnterpriseDetailView: UIView {
     
     private var enterprise: Enterprise?
     weak var delegate: EnterpriseDetailDelegate?
@@ -44,7 +45,7 @@ class EnterpriseDetailView: UIView {
         return enterpriseDescription
     }()
     
-    init(enterprise: Enterprise?) {
+    public init(enterprise: Enterprise?) {
         super.init(frame: .zero)
         self.enterprise = enterprise
         self.setBackgroundColor(to: .white)
@@ -54,7 +55,7 @@ class EnterpriseDetailView: UIView {
         updateBackgroundImage()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

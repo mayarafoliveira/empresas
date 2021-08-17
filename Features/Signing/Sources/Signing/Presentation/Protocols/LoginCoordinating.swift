@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol LoginCoordinating {
+public protocol LoginCoordinating {
     func showSearch()
 }

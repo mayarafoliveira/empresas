@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Domain
+import Common
 
-struct SearchResource {
-    static let shared = SearchResource()
+public struct SearchResource {
+    public static let shared = SearchResource()
     
-    func searchEnterprise(text: Search, result: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    public func searchEnterprise(text: Search, result: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
         let accessToken = HeaderKeys.accessToken.rawValue
         let client = HeaderKeys.client.rawValue
@@ -38,7 +40,7 @@ struct SearchResource {
 
 extension SearchResource {
     
-    enum HeaderKeys: String {
+    public enum HeaderKeys: String {
         case uid
         case client
         case accessToken = "access-token"

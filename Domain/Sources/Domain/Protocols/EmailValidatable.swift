@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol EmailValidatable {
+public protocol EmailValidatable {
     func validate(email: String) -> EmailValidatorError
 }

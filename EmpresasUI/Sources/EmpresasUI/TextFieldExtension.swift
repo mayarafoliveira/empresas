@@ -10,7 +10,7 @@ import UIKit
 extension UITextField {
     
     /// Shows which field is already filled in or which one you are typing
-    func setBorderColorIfNeeded(titleLabel: UILabel,
+    public func setBorderColorIfNeeded(titleLabel: UILabel,
                                 errorImage: UIImageView? = nil,
                                 warningLabel: UILabel? = nil,
                                 showPasswordButton: UIButton? = nil) {
@@ -30,7 +30,7 @@ extension UITextField {
     }
     
     /// Shows which field is invalid
-    func invalidField(errorImage: UIImageView? = nil,
+    public func invalidField(errorImage: UIImageView? = nil,
                       warningLabel: UILabel? = nil,
                       showPasswordButton: UIButton? = nil) {
         guard let view = self.superview else { return }

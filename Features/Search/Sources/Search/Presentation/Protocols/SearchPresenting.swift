@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Domain
 
-protocol SearchPresenting: AnyObject {
+public protocol SearchPresenting: AnyObject {
     func searchFor(_ enterprise: String)
     func attach(view: SearchViewable)
     func showEnterpriseDetail(_ enterprise: Enterprise)

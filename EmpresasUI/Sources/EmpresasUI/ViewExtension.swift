@@ -9,11 +9,11 @@ import UIKit
 
 extension UIView {
     
-    func setBackgroundColor(to color: UIColor) {
+    public func setBackgroundColor(to color: UIColor) {
         self.backgroundColor = color
     }
     
-    var notchHeight: CGFloat {
+    public var notchHeight: CGFloat {
         return self.window?.safeAreaInsets.bottom ?? 0
     }
 }

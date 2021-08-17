@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EmpresasUI
 
 open class LoginViewController: BaseViewController {
     
@@ -17,13 +18,13 @@ open class LoginViewController: BaseViewController {
         setupCustomNavigation()
     }
     
-    init(presenter: LoginPresenting) {
+    public init(presenter: LoginPresenting) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         presenter.attach(view: self)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -38,15 +39,15 @@ open class LoginViewController: BaseViewController {
 }
 
 extension LoginViewController: LoginViewable {
-    func isEmailValid(_ isValid: Bool) {
+    public func isEmailValid(_ isValid: Bool) {
         loginView.isEmailValid(isValid)
     }
     
-    func isPasswordValid(_ isValid: Bool) {
+    public func isPasswordValid(_ isValid: Bool) {
         loginView.isPasswordValid(isValid)
     }
     
-    func showError(error: Error) {
+    public func showError(error: Error) {
         let alert = UIAlertController(title: "Oops", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Tentar novamente", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -55,15 +56,15 @@ extension LoginViewController: LoginViewable {
 }
 
 extension LoginViewController: LoginViewDelegate {
-    func validateEmail(email: String) {
+    public func validateEmail(email: String) {
         presenter.validateEmail(email: email)
     }
     
-    func validatePassword(password: String) {
+    public func validatePassword(password: String) {
         presenter.validatePassword(password: password)
     }
     
-    func signIn(email: String, password: String) {
+    public func signIn(email: String, password: String) {
         self.presenter.signIn(email: email, password: password)
     }
 }

@@ -5,17 +5,18 @@
 //  Created by Mayara Ferreira de Oliveira on 04/08/21.
 //
 
-import Foundation
+import UIKit
+import Domain
 
-struct RemoteLoginUseCase: LoginUseCase {
+public struct RemoteLoginUseCase: LoginUseCase {
     
     private let resource: LoginResource
     
-    init(resource: LoginResource) {
+    public init(resource: LoginResource) {
         self.resource = resource
     }
     
-    func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    public func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         
         resource.login(order: Login(email: email, password: password)) { (data, _, error) in
             

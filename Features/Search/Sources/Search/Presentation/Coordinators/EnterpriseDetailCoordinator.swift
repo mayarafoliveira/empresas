@@ -6,18 +6,20 @@
 //
 
 import UIKit
+import Domain
+import Common
 
-struct EnterpriseDetailCoordinator: Coordinator, EnterpriseDetailCoordinating {
+public struct EnterpriseDetailCoordinator: Coordinator, EnterpriseDetailCoordinating {
     
     private weak var rootViewController: UINavigationController?
     private let enterprise: Enterprise
     
-    init(rootViewController: UINavigationController, enterprise: Enterprise) {
+    public init(rootViewController: UINavigationController, enterprise: Enterprise) {
         self.rootViewController = rootViewController
         self.enterprise = enterprise
     }
     
-    func start() {
+    public func start() {
         guard let rootViewController = rootViewController else { return }
         
         let presenter = EnterpriseDetailPresenter(

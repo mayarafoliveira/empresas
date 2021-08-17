@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PasswordValidatable {
+public protocol PasswordValidatable {
     func validate(password: String) -> PasswordValidatorError
 }

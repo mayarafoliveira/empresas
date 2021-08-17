@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import Domain
 
-struct RemoteSearchUseCase: SearchUseCase {
+public struct RemoteSearchUseCase: SearchUseCase {
     
     private let resource: SearchResource
     
-    init(resource: SearchResource) {
+    public init(resource: SearchResource) {
         self.resource = resource
     }
     
-    func searchEnterprise(text: Search, completion: @escaping (SearchResult?, Error?) -> Void) {
+    public func searchEnterprise(text: Search, completion: @escaping (SearchResult?, Error?) -> Void) {
         
         resource.searchEnterprise(text: text) { data, _, error  in
             

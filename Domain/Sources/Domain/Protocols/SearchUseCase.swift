@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SearchUseCase {
+public protocol SearchUseCase {
     func searchEnterprise(text: Search, completion: @escaping (SearchResult?, Error?) -> Void)
 }

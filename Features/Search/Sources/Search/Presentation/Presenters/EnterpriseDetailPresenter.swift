@@ -6,27 +6,28 @@
 //
 
 import UIKit
+import Domain
 
-protocol EnterpriseDetailPresenting: AnyObject {
+public protocol EnterpriseDetailPresenting: AnyObject {
     func attach(view: EnterpriseDetailViewable)
     var enterprise: Enterprise { get }
 }
 
-protocol EnterpriseDetailViewable: AnyObject {
+public protocol EnterpriseDetailViewable: AnyObject {
     
 }
 
-open class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
-    var enterprise: Enterprise
+public class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
+    public var enterprise: Enterprise
     weak var view: EnterpriseDetailViewable?
     private let coordinator: EnterpriseDetailCoordinating
     
-    init(coordinator: EnterpriseDetailCoordinating, enterprise: Enterprise) {
+    public init(coordinator: EnterpriseDetailCoordinating, enterprise: Enterprise) {
         self.coordinator = coordinator
         self.enterprise = enterprise
     }
     
-    func attach(view: EnterpriseDetailViewable) {
+    public func attach(view: EnterpriseDetailViewable) {
         self.view = view
     }
 }

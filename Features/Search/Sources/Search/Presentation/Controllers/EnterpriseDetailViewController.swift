@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EmpresasUI
 
 open class EnterpriseDetailViewController: BaseViewController {
     
@@ -22,13 +23,13 @@ open class EnterpriseDetailViewController: BaseViewController {
         view = enterpriseDetailView
     }
 
-    init(presenter: EnterpriseDetailPresenting) {
+    public init(presenter: EnterpriseDetailPresenting) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         presenter.attach(view: self)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

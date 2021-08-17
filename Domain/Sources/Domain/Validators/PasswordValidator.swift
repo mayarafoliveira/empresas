@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PasswordValidator: PasswordValidatable {
-    func validate(password: String) -> PasswordValidatorError {
+public struct PasswordValidator: PasswordValidatable {
+    public func validate(password: String) -> PasswordValidatorError {
         let isValid = password.count >= 8
         return isValid ? .valid : .invalid
     }

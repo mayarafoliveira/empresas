@@ -7,15 +7,14 @@
 
 import UIKit
 
-protocol LoginViewDelegate: AnyObject {
+public protocol LoginViewDelegate: AnyObject {
     func signIn(email: String, password: String)
     func validateEmail(email: String)
     func validatePassword(password: String)
 }
 
-open class LoginView: UIView {
-    
-    weak var delegate: LoginViewDelegate?
+public class LoginView: UIView {
+    public weak var delegate: LoginViewDelegate?
     private var emailIsEnabled: Bool = false
     private var passwordIsEnabled: Bool = false
     
@@ -208,7 +207,7 @@ open class LoginView: UIView {
         passwordTextField.delegate = self
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -412,7 +411,7 @@ extension LoginView: UITextFieldDelegate {
 
 extension LoginView {
     
-    func isEmailValid(_ isValid: Bool) {
+    public func isEmailValid(_ isValid: Bool) {
         emailIsEnabled = isValid
         emailTextField.setBorderColorIfNeeded(titleLabel: emailLabel)
         
@@ -423,7 +422,7 @@ extension LoginView {
         }
     }
     
-    func isPasswordValid(_ isValid: Bool) {
+    public func isPasswordValid(_ isValid: Bool) {
         passwordIsEnabled = isValid
         passwordTextField.setBorderColorIfNeeded(titleLabel: passwordLabel)
         

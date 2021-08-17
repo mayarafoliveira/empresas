@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct EmailValidator: EmailValidatable {
-    func validate(email: String) -> EmailValidatorError {
+public struct EmailValidator: EmailValidatable {
+    public func validate(email: String) -> EmailValidatorError {
         let isValid = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: email)
         return isValid ? .valid : .invalid
     }

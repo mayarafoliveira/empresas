@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Domain
 
-protocol SearchViewable: AnyObject {
+public protocol SearchViewable: AnyObject {
     func updateList(_ enterprises: [Enterprise])
 }

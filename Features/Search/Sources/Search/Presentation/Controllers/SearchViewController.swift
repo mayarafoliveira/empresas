@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Domain
+import EmpresasUI
 
 open class SearchViewController: BaseViewController {
     
@@ -17,13 +19,13 @@ open class SearchViewController: BaseViewController {
         setupCustomNavigation()
     }
     
-    init(presenter: SearchPresenting) {
+    public init(presenter: SearchPresenting) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         presenter.attach(view: self)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -34,17 +36,17 @@ open class SearchViewController: BaseViewController {
 }
 
 extension SearchViewController: SearchViewable {    
-    func updateList(_ enterprises: [Enterprise]) {
+    public func updateList(_ enterprises: [Enterprise]) {
         searchView.updateList(enterprises)
     }
 }
 
 extension SearchViewController: SearchViewDelegate {
-    func searchFor(enterprise: String) {
+    public func searchFor(enterprise: String) {
         self.presenter.searchFor(enterprise)
     }
     
-    func showEnterpriseDetail(_ enterprise: Enterprise) {
+    public func showEnterpriseDetail(_ enterprise: Enterprise) {
         self.presenter.showEnterpriseDetail(enterprise)
     }
 }

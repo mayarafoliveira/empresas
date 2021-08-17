@@ -6,22 +6,23 @@
 //
 
 import UIKit
+import Domain
 
-open class SearchPresenter: SearchPresenting {
+public class SearchPresenter: SearchPresenting {
     weak var view: SearchViewable?
     private let searchUseCase: SearchUseCase
     private let coordinator: SearchCoordinating
     
-    init(coordinator: SearchCoordinating, searchUseCase: SearchUseCase) {
+    public init(coordinator: SearchCoordinating, searchUseCase: SearchUseCase) {
         self.coordinator = coordinator
         self.searchUseCase = searchUseCase
     }
     
-    func attach(view: SearchViewable) {
+    public func attach(view: SearchViewable) {
         self.view = view
     }
     
-    func searchFor(_ enterprise: String) {
+    public func searchFor(_ enterprise: String) {
         searchUseCase.searchEnterprise(text: Search(enterpriseSearched: enterprise)) { (enterprises, error) in
 
             if let error = error { print(error) }
@@ -30,7 +31,7 @@ open class SearchPresenter: SearchPresenting {
         }
     }
     
-    func showEnterpriseDetail(_ enterprise: Enterprise) {
+    public func showEnterpriseDetail(_ enterprise: Enterprise) {
         coordinator.showEnterpriseDetail(enterprise)
     }
 

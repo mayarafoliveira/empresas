@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import Domain
+import Common
+//import Networking
 
-struct LoginCoordinator: Coordinator, LoginCoordinating {
+public struct LoginCoordinator: Coordinator, LoginCoordinating {
     
     private weak var rootViewController: UINavigationController?
     
-    init(rootViewController: UINavigationController) {
+    public init(rootViewController: UINavigationController) {
         self.rootViewController = rootViewController
     }
     
-    func start() {
+    public func start() {
         guard let rootViewController = rootViewController else { return }
         
         let presenter = LoginPresenter(
@@ -29,7 +32,7 @@ struct LoginCoordinator: Coordinator, LoginCoordinating {
         )
     }
     
-    func showSearch() {
+    public func showSearch() {
         let window = rootViewController?.view.window
         let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
         sceneDelegate?.showSearch()

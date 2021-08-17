@@ -5,13 +5,15 @@
 //  Created by Mayara Ferreira de Oliveira on 04/08/21.
 //
 
-import Foundation
+import UIKit
+import Domain
+import Common
 
-struct LoginResource {
+public struct LoginResource {
     
-    static let shared = LoginResource()
+    public static let shared = LoginResource()
     
-    func login(order: Login, result: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    public func login(order: Login, result: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
         do {
             
@@ -52,7 +54,7 @@ struct LoginResource {
 
 extension LoginResource {
     
-    enum HeaderKeys: String {
+    public enum HeaderKeys: String {
         case uid
         case client
         case accessToken = "access-token"

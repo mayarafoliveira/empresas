@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoginPresenting: AnyObject {
+public protocol LoginPresenting: AnyObject {
     func signIn(email: String, password: String)
     func attach(view: LoginViewable)
     func validateEmail(email: String)

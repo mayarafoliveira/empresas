@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoginViewable: AnyObject {
+public protocol LoginViewable: AnyObject {
     func showError(error: Error)
     func isEmailValid(_ isValid: Bool)
     func isPasswordValid(_ isValid: Bool)

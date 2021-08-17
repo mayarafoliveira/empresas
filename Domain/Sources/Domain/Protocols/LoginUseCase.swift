@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol LoginUseCase {
+public protocol LoginUseCase {
     func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void)
 }

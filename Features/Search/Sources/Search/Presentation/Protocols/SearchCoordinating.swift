@@ -6,7 +6,8 @@
 //
 
 import UIKit
+import Domain
 
-protocol SearchCoordinating {
+public protocol SearchCoordinating {
     func showEnterpriseDetail(_ enterprise: Enterprise)
 }

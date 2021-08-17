@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Domain
 
-protocol SearchViewDelegate: AnyObject {
+public protocol SearchViewDelegate: AnyObject {
     func searchFor(enterprise: String)
     func showEnterpriseDetail(_ enterprise: Enterprise)
 }
 
-class SearchView: UIView {
-    weak var delegate: SearchViewDelegate?
+open class SearchView: UIView {
+    public weak var delegate: SearchViewDelegate?
     
     private var enterprises: [Enterprise] = [] {
         didSet {
@@ -78,7 +79,7 @@ class SearchView: UIView {
         return tableView
     }()
     
-    override init(frame: CGRect) {
+    open override init(frame: CGRect) {
         super.init(frame: .zero)
     
         self.setBackgroundColor(to: .white)
@@ -92,7 +93,7 @@ class SearchView: UIView {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -201,7 +202,7 @@ extension SearchView: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SearchView {
-    func updateList(_ enterprises: [Enterprise]) {
+    public func updateList(_ enterprises: [Enterprise]) {
         self.enterprises = enterprises
         noResultsLabel.isHidden = !enterprises.isEmpty
     }

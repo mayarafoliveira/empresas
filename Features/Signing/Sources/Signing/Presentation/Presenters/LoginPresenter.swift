@@ -6,16 +6,16 @@
 //
 
 import UIKit
-
+import Domain
 
 public class LoginPresenter: LoginPresenting {
-    weak var view: LoginViewable?
+    public weak var view: LoginViewable?
     private let loginUseCase: LoginUseCase
     private let coordinator: LoginCoordinating
     private let emailValidator: EmailValidatable
     private let passwordValidator: PasswordValidatable
     
-    init(coordinator: LoginCoordinating,
+    public init(coordinator: LoginCoordinating,
          loginUseCase: LoginUseCase,
          emailValidator: EmailValidatable,
          passwordValidator: PasswordValidatable) {
@@ -26,11 +26,11 @@ public class LoginPresenter: LoginPresenting {
         self.passwordValidator = passwordValidator
     }
     
-    func attach(view: LoginViewable) {
+    public func attach(view: LoginViewable) {
         self.view = view
     }
     
-    func validateEmail(email: String) {
+    public func validateEmail(email: String) {
         switch emailValidator.validate(email: email) {
         case .valid:
             view?.isEmailValid(true)
@@ -39,7 +39,7 @@ public class LoginPresenter: LoginPresenting {
         }
     }
     
-    func validatePassword(password: String) {
+    public func validatePassword(password: String) {
         switch passwordValidator.validate(password: password) {
         case .valid:
             view?.isPasswordValid(true)
@@ -48,7 +48,7 @@ public class LoginPresenter: LoginPresenting {
         }
     }
     
-    func signIn(email: String, password: String) {
+    public func signIn(email: String, password: String) {
         
         loginUseCase.login(email: email, password: password) { [weak self] success, error  in
             

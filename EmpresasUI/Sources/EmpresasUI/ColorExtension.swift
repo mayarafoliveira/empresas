@@ -10,18 +10,22 @@ import UIKit
 extension UIColor {
     
     public static var pinkMain: UIColor {
-        return UIColor(named: "pink_main") ?? UIColor()
+        setupAssetColor(named: "pink_main")
     }
     
     public static var grayText: UIColor {
-        return UIColor(named: "gray_text") ?? UIColor()
+        setupAssetColor(named: "gray_text")
     }
     
     public static var graySecondary: UIColor {
-        return UIColor(named: "gray_secondary") ?? UIColor()
+        setupAssetColor(named: "gray_secondary")
     }
     
     public static var redError: UIColor {
-        return UIColor(named: "red_error") ?? UIColor()
+        setupAssetColor(named: "red_error")
+    }
+    
+    public static func setupAssetColor(named: String) -> UIColor {
+        return UIColor(named: named, in: .module, compatibleWith: nil) ?? UIColor()
     }
 }

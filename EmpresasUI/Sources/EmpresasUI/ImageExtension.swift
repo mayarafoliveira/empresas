@@ -10,43 +10,47 @@ import UIKit
 extension UIImage {
     
     public static var backButton: UIImage {
-        return UIImage(named: "back_button", in: .module, with: nil) ?? UIImage()
+        setupAssetImage(named: "back_button")
     }
     
     public static var backgroundHome: UIImage {
-        return UIImage(named: "background_home") ?? UIImage()
+        setupAssetImage(named: "background_home")
     }
     
     public static var bigLoadingIcon: UIImage {
-        return UIImage(named: "big_loading_icon") ?? UIImage()
+        setupAssetImage(named: "big_loading_icon")
     }
     
     public static var logoHome: UIImage {
-        return UIImage(named: "logo_home") ?? UIImage()
+        setupAssetImage(named: "logo_home")
     }
     
     public static var logoIoasys: UIImage {
-        return UIImage(named: "logo_ioasys") ?? UIImage()
+        setupAssetImage(named: "logo_ioasys")
     }
     
     public static var redX: UIImage {
-        return UIImage(named: "red_x") ?? UIImage()
+        setupAssetImage(named: "red_x")
     }
     
     public static var searchIcon: UIImage {
-        return UIImage(named: "search_icon") ?? UIImage()
+        setupAssetImage(named: "search_icon")
     }
     
     public static var smallLoadingIcon: UIImage {
-        return UIImage(named: "small_loading_icon") ?? UIImage()
+        setupAssetImage(named: "small_loading_icon")
     }
     
     public static var visible: UIImage {
-        return UIImage(named: "visible") ?? UIImage()
+        setupAssetImage(named: "visible")
     }
     
     public static var searchBackground: UIImage {
-        return UIImage(named: "search_background") ?? UIImage()
+        setupAssetImage(named: "search_background")
+    }
+    
+    private static func setupAssetImage(named: String) -> UIImage {
+        UIImage(named: named, in: .module, with: nil) ?? UIImage()
     }
 }
 

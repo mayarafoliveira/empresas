@@ -10,7 +10,7 @@ import UIKit
 extension UIImage {
     
     public static var backButton: UIImage {
-        return UIImage(named: "back_button") ?? UIImage()
+        return UIImage(named: "back_button", in: .module, with: nil) ?? UIImage()
     }
     
     public static var backgroundHome: UIImage {

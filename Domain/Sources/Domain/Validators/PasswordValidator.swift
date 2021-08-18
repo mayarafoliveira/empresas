@@ -12,4 +12,6 @@ public struct PasswordValidator: PasswordValidatable {
         let isValid = password.count >= 8
         return isValid ? .valid : .invalid
     }
+    
+    public init() {}
 }

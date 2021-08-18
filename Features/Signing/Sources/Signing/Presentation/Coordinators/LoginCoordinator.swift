@@ -24,7 +24,9 @@ public struct LoginCoordinator: Coordinator, LoginCoordinating {
         
         let presenter = LoginPresenter(
             coordinator: self,
-            loginUseCase: RemoteLoginUseCase(resource: .shared), emailValidator: EmailValidator(), passwordValidator: PasswordValidator()
+            loginUseCase: DIContainer.shared.resolve(),
+            emailValidator: DIContainer.shared.resolve(),
+            passwordValidator: DIContainer.shared.resolve()
         )
         
         rootViewController.setViewControllers(
@@ -34,12 +36,8 @@ public struct LoginCoordinator: Coordinator, LoginCoordinating {
     }
     
     public func showSearch() {
-//        let window = rootViewController?.view.window
-//        let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
-//        sceneDelegate?.showSearch()
-        let navigation = UINavigationController()
         let window = rootViewController?.view.window
-        let sceneDelegate = window?.windowScene?.delegate as? AppCoordinatorDelegate
-        sceneDelegate?.showSearch(rootViewController: navigation)
+        let appSceneDelegate = window?.windowScene?.delegate as? AppSceneDelegate
+        appSceneDelegate?.showSearch()
     }
 }

@@ -23,7 +23,7 @@ public struct SearchCoordinator: Coordinator, SearchCoordinating {
         
         let presenter = SearchPresenter(
             coordinator: self,
-            searchUseCase: RemoteSearchUseCase(resource: .shared)
+            searchUseCase: DIContainer.shared.resolve()
         )
         
         rootViewController.setViewControllers([SearchViewController(presenter: presenter)], animated: true

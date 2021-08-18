@@ -9,4 +9,8 @@ import Foundation
 
 public struct Search: Decodable {
     public var enterpriseSearched: String
+    
+    public init(enterpriseSearched: String) {
+        self.enterpriseSearched = enterpriseSearched
+    }
 }

@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Domain
 import App
-//import Signing
+import Common
+import Signing
+import Search
+import Networking
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        dependenciesInject()
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
@@ -26,6 +32,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.appCoordinator?.start()
         
         window.makeKeyAndVisible()
+    }
+    
+    func dependenciesInject() {
+        DIContainer.shared.register(
+            type: LoginUseCase.self,
+            component: RemoteLoginUseCase(resource: .shared)
+        )
+        
+        DIContainer.shared.register(
+            type: SearchUseCase.self,
+            component: RemoteSearchUseCase(resource: .shared)
+        )
+        
+        DIContainer.shared.register(
+            type: EmailValidatable.self,
+            component: EmailValidator()
+        )
+        
+        DIContainer.shared.register(
+            type: PasswordValidatable.self,
+            component: PasswordValidator()
+        )
     }
 }
 
@@ -43,14 +71,12 @@ extension SceneDelegate {
 extension SceneDelegate: AppCoordinatorDelegate {
     
     func showLogin(rootViewController: UINavigationController) {
-//        let navigation = UINavigationController()
-//        let loginCoordinator = LoginCoordinator(rootViewController: navigation)
-//        loginCoordinator.start()
+        let loginCoordinator = LoginCoordinator(rootViewController: rootViewController)
+        loginCoordinator.start()
     }
     
     func showSearch(rootViewController: UINavigationController) {
-//        let navigation = UINavigationController()
-//        let searchCoordinator = SearchCoordinator(rootViewController: navigation)
-//        searchCoordinator.start()
+        let searchCoordinator = SearchCoordinator(rootViewController: rootViewController)
+        searchCoordinator.start()
     }
 }

@@ -11,4 +11,10 @@ public struct UserAccess: Codable {
     public var uid: String?
     public var client: String?
     public var accessToken: String?
+    
+    public init(uid: String? = nil, client: String? = nil, accessToken: String? = nil) {
+        self.uid = uid
+        self.client = client
+        self.accessToken = accessToken
+    }
 }

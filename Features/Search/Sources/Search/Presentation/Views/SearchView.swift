@@ -13,8 +13,8 @@ public protocol SearchViewDelegate: AnyObject {
     func showEnterpriseDetail(_ enterprise: Enterprise)
 }
 
-open class SearchView: UIView {
-    public weak var delegate: SearchViewDelegate?
+class SearchView: UIView {
+    weak var delegate: SearchViewDelegate?
     
     private var enterprises: [Enterprise] = [] {
         didSet {
@@ -79,7 +79,7 @@ open class SearchView: UIView {
         return tableView
     }()
     
-    open override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: .zero)
     
         self.setBackgroundColor(to: .white)
@@ -93,7 +93,7 @@ open class SearchView: UIView {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    required public init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

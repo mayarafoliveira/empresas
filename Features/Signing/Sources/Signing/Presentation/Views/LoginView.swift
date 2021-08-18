@@ -13,8 +13,8 @@ public protocol LoginViewDelegate: AnyObject {
     func validatePassword(password: String)
 }
 
-public class LoginView: UIView {
-    public weak var delegate: LoginViewDelegate?
+class LoginView: UIView {
+    weak var delegate: LoginViewDelegate?
     private var emailIsEnabled: Bool = false
     private var passwordIsEnabled: Bool = false
     
@@ -196,7 +196,7 @@ public class LoginView: UIView {
         return signInButton
     }()
 
-    open override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: .zero)
     
         self.setBackgroundColor(to: .white)
@@ -207,7 +207,7 @@ public class LoginView: UIView {
         passwordTextField.delegate = self
     }
     
-    required public init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

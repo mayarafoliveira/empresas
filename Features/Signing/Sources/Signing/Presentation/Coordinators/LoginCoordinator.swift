@@ -8,6 +8,7 @@
 import UIKit
 import Domain
 import Common
+import App
 //import Networking
 
 public struct LoginCoordinator: Coordinator, LoginCoordinating {
@@ -33,8 +34,12 @@ public struct LoginCoordinator: Coordinator, LoginCoordinating {
     }
     
     public func showSearch() {
+//        let window = rootViewController?.view.window
+//        let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
+//        sceneDelegate?.showSearch()
+        let navigation = UINavigationController()
         let window = rootViewController?.view.window
-        let sceneDelegate = window?.windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.showSearch()
+        let sceneDelegate = window?.windowScene?.delegate as? AppCoordinatorDelegate
+        sceneDelegate?.showSearch(rootViewController: navigation)
     }
 }

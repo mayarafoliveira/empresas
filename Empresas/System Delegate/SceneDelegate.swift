@@ -7,6 +7,7 @@
 
 import UIKit
 import App
+//import Signing
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -42,10 +43,14 @@ extension SceneDelegate {
 extension SceneDelegate: AppCoordinatorDelegate {
     
     func showLogin(rootViewController: UINavigationController) {
-        // loginCoordinator.start()
+//        let navigation = UINavigationController()
+//        let loginCoordinator = LoginCoordinator(rootViewController: navigation)
+//        loginCoordinator.start()
     }
     
     func showSearch(rootViewController: UINavigationController) {
-        // searchCoordinator.start()
+//        let navigation = UINavigationController()
+//        let searchCoordinator = SearchCoordinator(rootViewController: navigation)
+//        searchCoordinator.start()
     }
 }

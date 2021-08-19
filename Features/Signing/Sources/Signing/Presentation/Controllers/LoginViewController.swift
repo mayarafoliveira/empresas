@@ -8,7 +8,7 @@
 import UIKit
 import EmpresasUI
 
-open class LoginViewController: BaseViewController {
+public class LoginViewController: BaseViewController {
     
     private let presenter: LoginPresenting
     private lazy var loginView = LoginView()

@@ -8,7 +8,7 @@
 import UIKit
 import EmpresasUI
 
-open class EnterpriseDetailViewController: BaseViewController {
+public class EnterpriseDetailViewController: BaseViewController {
     
     private let presenter: EnterpriseDetailPresenting
     private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: presenter.enterprise)

@@ -9,7 +9,7 @@ import UIKit
 import Domain
 import EmpresasUI
 
-open class SearchViewController: BaseViewController {
+public class SearchViewController: BaseViewController {
     
     private let presenter: SearchPresenting
     private lazy var searchView = SearchView()

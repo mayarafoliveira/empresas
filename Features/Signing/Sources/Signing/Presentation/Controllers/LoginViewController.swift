@@ -13,7 +13,7 @@ public class LoginViewController: BaseViewController {
     private let presenter: LoginPresenting
     private lazy var loginView = LoginView()
     
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomNavigation()
     }
@@ -28,12 +28,12 @@ public class LoginViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    open override func loadView() {
+    public override func loadView() {
         loginView.delegate = self
         view = loginView
     }
     
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         return.lightContent
     }
 }

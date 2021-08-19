@@ -14,7 +14,7 @@ public class SearchViewController: BaseViewController {
     private let presenter: SearchPresenting
     private lazy var searchView = SearchView()
     
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomNavigation()
     }
@@ -29,7 +29,7 @@ public class SearchViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    open override func loadView() {
+    public override func loadView() {
         searchView.delegate = self
         view = searchView
     }

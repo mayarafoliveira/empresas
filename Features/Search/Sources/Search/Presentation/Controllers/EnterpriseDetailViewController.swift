@@ -13,12 +13,12 @@ public class EnterpriseDetailViewController: BaseViewController {
     private let presenter: EnterpriseDetailPresenting
     private lazy var enterpriseDetailView = EnterpriseDetailView(enterprise: presenter.enterprise)
     
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomNavigation()
     }
     
-    open override func loadView() {
+    public override func loadView() {
         enterpriseDetailView.delegate = self
         view = enterpriseDetailView
     }

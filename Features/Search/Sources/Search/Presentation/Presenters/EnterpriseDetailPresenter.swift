@@ -8,15 +8,6 @@
 import UIKit
 import Domain
 
-public protocol EnterpriseDetailPresenting: AnyObject {
-    func attach(view: EnterpriseDetailViewable)
-    var enterprise: Enterprise { get }
-}
-
-public protocol EnterpriseDetailViewable: AnyObject {
-    
-}
-
 public class EnterpriseDetailPresenter: EnterpriseDetailPresenting {
     public var enterprise: Enterprise
     weak var view: EnterpriseDetailViewable?

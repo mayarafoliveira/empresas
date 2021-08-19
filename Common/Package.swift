@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "Common",
-            targets: ["Common"]),
+            targets: ["Common"])
     ],
     dependencies: [
         .package(

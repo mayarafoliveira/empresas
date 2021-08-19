@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol AppSceneDelegate {
+public protocol AppSceneDelegate: AnyObject {
     func showLogin()
     func showSearch()
 }

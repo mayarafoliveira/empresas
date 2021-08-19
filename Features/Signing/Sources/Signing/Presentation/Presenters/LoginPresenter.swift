@@ -17,9 +17,9 @@ public class LoginPresenter: LoginPresenting {
     private let passwordValidator: PasswordValidatable
     
     public init(coordinator: LoginCoordinating,
-         loginUseCase: LoginUseCase,
-         emailValidator: EmailValidatable,
-         passwordValidator: PasswordValidatable) {
+                loginUseCase: LoginUseCase,
+                emailValidator: EmailValidatable,
+                passwordValidator: PasswordValidatable) {
         
         self.coordinator = coordinator
         self.loginUseCase = loginUseCase

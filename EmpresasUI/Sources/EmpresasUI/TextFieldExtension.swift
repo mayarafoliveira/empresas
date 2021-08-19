@@ -10,10 +10,12 @@ import UIKit
 extension UITextField {
     
     /// Shows which field you are typing
-    public func setBorderColorIfNeeded(titleLabel: UILabel,
-                                errorImage: UIImageView? = nil,
-                                warningLabel: UILabel? = nil,
-                                showPasswordButton: UIButton? = nil) {
+    public func setBorderColorIfNeeded(
+        titleLabel: UILabel,
+        errorImage: UIImageView? = nil,
+        warningLabel: UILabel? = nil,
+        showPasswordButton: UIButton? = nil) {
+        
         guard let view = self.superview else { return }
         
         warningLabel?.textColor = .clear
@@ -30,9 +32,11 @@ extension UITextField {
     }
     
     /// Shows which field is invalid
-    public func invalidField(errorImage: UIImageView? = nil,
-                      warningLabel: UILabel? = nil,
-                      showPasswordButton: UIButton? = nil) {
+    public func invalidField(
+        errorImage: UIImageView? = nil,
+        warningLabel: UILabel? = nil,
+        showPasswordButton: UIButton? = nil) {
+        
         guard let view = self.superview else { return }
         
         view.layer.borderColor = UIColor.redError.cgColor

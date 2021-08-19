@@ -7,6 +7,7 @@
 
 import UIKit
 import Domain
+import App
 
 public class LoginPresenter: LoginPresenting {
     public weak var view: LoginViewable?
@@ -54,7 +55,7 @@ public class LoginPresenter: LoginPresenting {
             
             if success {
                 self?.coordinator.showSearch()
-              
+                
             } else {
                 self?.view?.isEmailValid(false)
                 self?.view?.isPasswordValid(false)

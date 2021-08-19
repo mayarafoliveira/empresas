@@ -82,13 +82,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7D56B4C8269DB4BF00FACD8E /* Supporting Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Supporting Extensions";
-			sourceTree = "<group>";
-		};
 		7D5775BD269D45C300C1E79D = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +92,6 @@
 				7D618A9026C6A6A10098F3C7 /* Common */,
 				7D5775C8269D45C300C1E79D /* Empresas */,
 				7D5775C7269D45C300C1E79D /* Products */,
-				7D933FA226CAB0BB00457EFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				7D56B4B4269D4A4700FACD8E /* Resources */,
-				7D56B4C8269DB4BF00FACD8E /* Supporting Extensions */,
 				7D56B4B5269D4AF400FACD8E /* System Delegate */,
 				7D56B4B6269D4CB400FACD8E /* Supporting Files */,
 			);
@@ -130,13 +121,6 @@
 				7D5DB32026C709A9000BDF88 /* Signing */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		7D933FA226CAB0BB00457EFE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

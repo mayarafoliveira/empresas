@@ -35,5 +35,4 @@ public class AppStorage {
             userDefaults.setValue(userAccessEncoded, forKey: userAccessKey)
         }
     }
-    
 }

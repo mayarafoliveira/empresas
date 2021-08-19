@@ -9,7 +9,7 @@ import UIKit
 
 extension UITextField {
     
-    /// Shows which field is already filled in or which one you are typing
+    /// Shows which field you are typing
     public func setBorderColorIfNeeded(titleLabel: UILabel,
                                 errorImage: UIImageView? = nil,
                                 warningLabel: UILabel? = nil,

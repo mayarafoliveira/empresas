@@ -28,6 +28,7 @@ public struct LoginResource {
             URLSession.shared.dataTask(
                 with: request,
                 completionHandler: { data, response, error in
+                    
                     if let response = response as? HTTPURLResponse {
                         
                         let headers = response.allHeaderFields

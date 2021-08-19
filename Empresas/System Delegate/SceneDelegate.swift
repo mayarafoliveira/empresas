@@ -13,7 +13,7 @@ import Signing
 import Search
 import Networking
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppSceneDelegate {
 
     var window: UIWindow?
     var appCoordinator: AppCoordinator?

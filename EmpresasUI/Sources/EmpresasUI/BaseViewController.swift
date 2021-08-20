@@ -14,12 +14,14 @@ open class BaseViewController: UIViewController {
     }
     
     public func setupCustomNavigation() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(
+            UIImage(), for: .default)
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.backIndicatorImage = .backButton
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = .backButton
     }

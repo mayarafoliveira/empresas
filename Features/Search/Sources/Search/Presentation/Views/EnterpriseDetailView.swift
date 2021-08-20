@@ -8,9 +8,7 @@
 import UIKit
 import Domain
 
-public protocol EnterpriseDetailDelegate: AnyObject {
-
-}
+public protocol EnterpriseDetailDelegate: AnyObject {}
 
 public class EnterpriseDetailView: UIView {
     
@@ -85,28 +83,56 @@ extension EnterpriseDetailView {
     }
     
     func setupEnterpriseNameConstraints() {
-        enterpriseName.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        enterpriseName.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        enterpriseName.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
-        enterpriseName.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        NSLayoutConstraint.activate([
+            enterpriseName.rightAnchor.constraint(
+                equalTo: self.rightAnchor,
+                constant: -20
+            ),
+            enterpriseName.leftAnchor.constraint(
+                equalTo: self.leftAnchor,
+                constant: 20
+            ),
+            enterpriseName.topAnchor.constraint(
+                equalTo: self.topAnchor,
+                constant: 40
+            ),
+            enterpriseName.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
     
     func setupBackgroundImageConstraints() {
-        backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor)
-            .isActive = true
-        backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor)
-            .isActive = true
-        backgroundImage.topAnchor.constraint(
-            equalTo: self.enterpriseName.bottomAnchor,
-            constant: 40).isActive = true
-        backgroundImage.heightAnchor.constraint(equalTo: self.heightAnchor,
-                                                multiplier: 1.0/4.0).isActive = true
+        NSLayoutConstraint.activate([
+            backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor),
+            backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor),
+            backgroundImage.topAnchor.constraint(
+                equalTo: self.enterpriseName.bottomAnchor,
+                constant: 40
+            ),
+            backgroundImage.heightAnchor.constraint(
+                equalTo: self.heightAnchor,
+                multiplier: 1.0/4.0
+            )
+        ])
     }
     
     func setupEnterpriseDescriptionConstraints() {
-        enterpriseDescription.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        enterpriseDescription.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        enterpriseDescription.topAnchor.constraint(equalTo: self.backgroundImage.bottomAnchor, constant: 20).isActive = true
-        enterpriseDescription.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            enterpriseDescription.rightAnchor.constraint(
+                equalTo: self.rightAnchor,
+                constant: -20
+            ),
+            enterpriseDescription.leftAnchor.constraint(
+                equalTo: self.leftAnchor,
+                constant: 20
+            ),
+            enterpriseDescription.topAnchor.constraint(
+                equalTo: self.backgroundImage.bottomAnchor,
+                constant: 20
+            ),
+            enterpriseDescription.bottomAnchor.constraint(
+                lessThanOrEqualTo: self.bottomAnchor,
+                constant: 20
+            )
+        ])
     }
 }

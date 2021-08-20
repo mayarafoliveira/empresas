@@ -181,7 +181,6 @@ class LoginView: UIView {
     }()
     
     private lazy var signInButton: UIButton = {
-
         let signInButton = UIButton()
         signInButton.isEnabled = false
         signInButton.backgroundColor = .graySecondary
@@ -212,10 +211,8 @@ class LoginView: UIView {
     }
     
     // MARK: Actions
-    
     @objc func showPasswordAction(sender: UIButton) {
         switch sender.image(for: .normal) {
-        
         case .visible?:
             sender.setImage(.invisible, for: .normal)
             passwordTextField.isSecureTextEntry = false
@@ -227,7 +224,6 @@ class LoginView: UIView {
     }
     
     @objc func signInAction(sender: UIButton) {
-       
         guard let email = emailTextField.text,
               let password = passwordTextField.text
         else { return }
@@ -286,24 +282,40 @@ extension LoginView {
     
     // Header
     func setupBackgroundImageConstraints() {
-        backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        backgroundImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        backgroundImage.heightAnchor.constraint(equalTo: self.heightAnchor,
-                                                multiplier: 1.0/3.0).isActive = true
+        NSLayoutConstraint.activate([
+            backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor),
+            backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),
+            backgroundImage.heightAnchor.constraint(
+                equalTo: self.heightAnchor,
+                multiplier: 1.0/3.0)
+        ])
     }
     
     func setupHeaderStackViewConstraints() {
-        headerStackView.rightAnchor.constraint(equalTo: self.backgroundImage.rightAnchor, constant: -20).isActive = true
-        headerStackView.leftAnchor.constraint(equalTo: self.backgroundImage.leftAnchor, constant: 20).isActive = true
-        headerStackView.centerYAnchor.constraint(equalTo: self.backgroundImage.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            headerStackView.rightAnchor.constraint(
+                equalTo: self.backgroundImage.rightAnchor,
+                constant: -20),
+            headerStackView.leftAnchor.constraint(
+                equalTo: self.backgroundImage.leftAnchor,
+                constant: 20),
+            headerStackView.centerYAnchor.constraint(
+                equalTo: self.backgroundImage.centerYAnchor)
+        ])
     }
     
     func setupLoginStackViewConstraints() {
         NSLayoutConstraint.activate([
-            loginStackView.topAnchor.constraint(equalTo: self.backgroundImage.bottomAnchor, constant: 40),
-            loginStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 24),
-            loginStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -24)
+            loginStackView.topAnchor.constraint(
+                equalTo: self.backgroundImage.bottomAnchor,
+                constant: 40),
+            loginStackView.leftAnchor.constraint(
+                equalTo: self.leftAnchor,
+                constant: 24),
+            loginStackView.rightAnchor.constraint(
+                equalTo: self.rightAnchor,
+                constant: -24)
         ])
     }
     
@@ -313,19 +325,31 @@ extension LoginView {
  
     func setupEmailErrorImageConstraints() {
         NSLayoutConstraint.activate([
-            emailErrorImage.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor),
-            emailErrorImage.widthAnchor.constraint(equalTo: self.emailTextField.heightAnchor),
-            emailErrorImage.rightAnchor.constraint(equalTo: self.emailView.rightAnchor, constant: -12),
-            emailErrorImage.centerYAnchor.constraint(equalTo: self.emailView.centerYAnchor)
+            emailErrorImage.heightAnchor.constraint(
+                equalTo: self.emailTextField.heightAnchor),
+            emailErrorImage.widthAnchor.constraint(
+                equalTo: self.emailTextField.heightAnchor),
+            emailErrorImage.rightAnchor.constraint(
+                equalTo: self.emailView.rightAnchor,
+                constant: -12),
+            emailErrorImage.centerYAnchor.constraint(
+                equalTo: self.emailView.centerYAnchor)
         ])
     }
     
     func setupEmailTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            emailTextField.rightAnchor.constraint(equalTo: self.emailErrorImage.leftAnchor),
-            emailTextField.leftAnchor.constraint(equalTo: self.emailView.leftAnchor, constant: 12),
-            emailTextField.topAnchor.constraint(equalTo: self.emailView.topAnchor, constant: 5),
-            emailTextField.bottomAnchor.constraint(equalTo: self.emailView.bottomAnchor, constant: -5)
+            emailTextField.rightAnchor.constraint(
+                equalTo: self.emailErrorImage.leftAnchor),
+            emailTextField.leftAnchor.constraint(
+                equalTo: self.emailView.leftAnchor,
+                constant: 12),
+            emailTextField.topAnchor.constraint(
+                equalTo: self.emailView.topAnchor,
+                constant: 5),
+            emailTextField.bottomAnchor.constraint(
+                equalTo: self.emailView.bottomAnchor,
+                constant: -5)
         ])
     }
     
@@ -335,36 +359,61 @@ extension LoginView {
     
     func setupPasswordErrorImageConstraints() {
         NSLayoutConstraint.activate([
-            passwordErrorImage.heightAnchor.constraint(equalTo: self.passwordTextField.heightAnchor),
-            passwordErrorImage.widthAnchor.constraint(equalTo: self.passwordTextField.heightAnchor),
-            passwordErrorImage.rightAnchor.constraint(equalTo: self.passwordView.rightAnchor, constant: -12),
-            passwordErrorImage.centerYAnchor.constraint(equalTo: self.passwordView.centerYAnchor)
+            passwordErrorImage.heightAnchor.constraint(
+                equalTo: self.passwordTextField.heightAnchor),
+            passwordErrorImage.widthAnchor.constraint(
+                equalTo: self.passwordTextField.heightAnchor),
+            passwordErrorImage.rightAnchor.constraint(
+                equalTo: self.passwordView.rightAnchor,
+                constant: -12),
+            passwordErrorImage.centerYAnchor.constraint(
+                equalTo: self.passwordView.centerYAnchor)
         ])
     }
     
     func setupShowPasswordButtonConstraints() {
         NSLayoutConstraint.activate([
-            showPasswordButton.heightAnchor.constraint(equalTo: self.passwordTextField.heightAnchor),
-            showPasswordButton.widthAnchor.constraint(equalTo: self.passwordTextField.heightAnchor),
-            showPasswordButton.rightAnchor.constraint(equalTo: self.passwordView.rightAnchor, constant: -12),
-            showPasswordButton.centerYAnchor.constraint(equalTo: self.passwordView.centerYAnchor)
+            showPasswordButton.heightAnchor.constraint(
+                equalTo: self.passwordTextField.heightAnchor),
+            showPasswordButton.widthAnchor.constraint(
+                equalTo: self.passwordTextField.heightAnchor),
+            showPasswordButton.rightAnchor.constraint(
+                equalTo: self.passwordView.rightAnchor,
+                constant: -12),
+            showPasswordButton.centerYAnchor.constraint(
+                equalTo: self.passwordView.centerYAnchor)
         ])
     }
     
     func setupPasswordTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            passwordTextField.rightAnchor.constraint(equalTo: self.passwordErrorImage.leftAnchor),
-            passwordTextField.leftAnchor.constraint(equalTo: self.passwordView.leftAnchor, constant: 12),
-            passwordTextField.topAnchor.constraint(equalTo: self.passwordView.topAnchor, constant: 5),
-            passwordTextField.bottomAnchor.constraint(equalTo: self.passwordView.bottomAnchor, constant: -5)
+            passwordTextField.rightAnchor.constraint(
+                equalTo: self.passwordErrorImage.leftAnchor),
+            passwordTextField.leftAnchor.constraint(
+                equalTo: self.passwordView.leftAnchor,
+                constant: 12),
+            passwordTextField.topAnchor.constraint(
+                equalTo: self.passwordView.topAnchor,
+                constant: 5),
+            passwordTextField.bottomAnchor.constraint(
+                equalTo: self.passwordView.bottomAnchor,
+                constant: -5)
         ])
     }
     
     func setupSignInButtonConstraints() {
-        signInButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -40).isActive = true
-        signInButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 40).isActive = true
-        signInButton.topAnchor.constraint(equalTo: self.loginStackView.bottomAnchor, constant: 40).isActive = true
-        signInButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        NSLayoutConstraint.activate([
+            signInButton.rightAnchor.constraint(
+                equalTo: self.rightAnchor,
+                constant: -40),
+            signInButton.leftAnchor.constraint(
+                equalTo: self.leftAnchor,
+                constant: 40),
+            signInButton.topAnchor.constraint(
+                equalTo: self.loginStackView.bottomAnchor,
+                constant: 40),
+            signInButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
     }
 }
 
@@ -373,7 +422,6 @@ extension LoginView: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {
-        
         case emailTextField:
             textField.setBorderColorIfNeeded(
                 titleLabel: emailLabel,
@@ -393,7 +441,6 @@ extension LoginView: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
-        
         case emailTextField:
             delegate?.validateEmail(email: textField.text ?? "")
         default:
@@ -440,17 +487,14 @@ extension LoginView {
         passwordIsEnabled = isValid
         passwordTextField.setBorderColorIfNeeded(
             titleLabel: passwordLabel,
-            showPasswordButton: showPasswordButton
-        )
+            showPasswordButton: showPasswordButton)
         
         guard passwordTextField.text?.isEmpty == false else { return }
         if !isValid && !passwordTextField.isEditing {
-            
             passwordTextField.invalidField(
                 errorImage: passwordErrorImage,
                 warningLabel: passwordWarningLabel,
-                showPasswordButton: showPasswordButton
-            )
+                showPasswordButton: showPasswordButton)
         }
     }
 }

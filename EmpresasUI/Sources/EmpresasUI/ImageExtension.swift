@@ -29,10 +29,6 @@ extension UIImage {
         setupAssetImage(named: "logo_home")
     }
     
-    public static var logoIoasys: UIImage {
-        setupAssetImage(named: "logo_ioasys")
-    }
-    
     public static var redX: UIImage {
         setupAssetImage(named: "red_x")
     }

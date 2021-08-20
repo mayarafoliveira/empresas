@@ -21,6 +21,10 @@ extension UIImage {
         setupAssetImage(named: "big_loading_icon")
     }
     
+    public static var invisible: UIImage {
+        setupAssetImage(named: "invisible")
+    }
+    
     public static var logoHome: UIImage {
         setupAssetImage(named: "logo_home")
     }

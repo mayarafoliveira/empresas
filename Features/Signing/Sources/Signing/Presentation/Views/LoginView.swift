@@ -214,12 +214,14 @@ class LoginView: UIView {
     // MARK: Actions
     
     @objc func showPasswordAction(sender: UIButton) {
-        switch sender.backgroundColor {
-        case UIColor.clear:
-            sender.backgroundColor = .pinkMain
+        switch sender.image(for: .normal) {
+        
+        case .visible?:
+            sender.setImage(.invisible, for: .normal)
             passwordTextField.isSecureTextEntry = false
+            
         default:
-            sender.backgroundColor = .clear
+            sender.setImage(.visible, for: .normal)
             passwordTextField.isSecureTextEntry = true
         }
     }
@@ -370,18 +372,28 @@ extension LoginView {
 extension LoginView: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         switch textField {
+        
         case emailTextField:
-            textField.setBorderColorIfNeeded(titleLabel: emailLabel, errorImage: emailErrorImage, warningLabel: emailWarningLabel)
+            textField.setBorderColorIfNeeded(
+                titleLabel: emailLabel,
+                errorImage: emailErrorImage,
+                warningLabel: emailWarningLabel
+            )
+            
         default:
-            textField.setBorderColorIfNeeded(titleLabel: passwordLabel, errorImage: passwordErrorImage, warningLabel: passwordWarningLabel)
+            textField.setBorderColorIfNeeded(
+                titleLabel: passwordLabel,
+                errorImage: passwordErrorImage,
+                warningLabel: passwordWarningLabel,
+                showPasswordButton: showPasswordButton
+            )
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-
         switch textField {
+        
         case emailTextField:
             delegate?.validateEmail(email: textField.text ?? "")
         default:
@@ -390,7 +402,6 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        
         guard
             let emailText = emailTextField.text,
             let passwordText = passwordTextField.text
@@ -417,20 +428,29 @@ extension LoginView {
         
         guard emailTextField.text?.isEmpty == false else { return }
         if !isValid && !emailTextField.isEditing {
-            emailTextField.invalidField(errorImage: emailErrorImage,
-                                        warningLabel: emailWarningLabel)
+            
+            emailTextField.invalidField(
+                errorImage: emailErrorImage,
+                warningLabel: emailWarningLabel
+            )
         }
     }
     
     public func isPasswordValid(_ isValid: Bool) {
         passwordIsEnabled = isValid
-        passwordTextField.setBorderColorIfNeeded(titleLabel: passwordLabel)
+        passwordTextField.setBorderColorIfNeeded(
+            titleLabel: passwordLabel,
+            showPasswordButton: showPasswordButton
+        )
         
         guard passwordTextField.text?.isEmpty == false else { return }
         if !isValid && !passwordTextField.isEditing {
-            passwordTextField.invalidField(errorImage: passwordErrorImage,
-                                           warningLabel: passwordWarningLabel,
-                                           showPasswordButton: showPasswordButton)
+            
+            passwordTextField.invalidField(
+                errorImage: passwordErrorImage,
+                warningLabel: passwordWarningLabel,
+                showPasswordButton: showPasswordButton
+            )
         }
     }
 }

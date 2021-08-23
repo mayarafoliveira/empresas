@@ -52,7 +52,6 @@ extension LoginViewController: LoginViewable {
         alert.addAction(UIAlertAction(title: "Tentar novamente", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
 }
 
 extension LoginViewController: LoginViewDelegate {

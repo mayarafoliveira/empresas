@@ -21,12 +21,12 @@ extension UIImage {
         setupAssetImage(named: "big_loading_icon")
     }
     
-    public static var logoHome: UIImage {
-        setupAssetImage(named: "logo_home")
+    public static var invisible: UIImage {
+        setupAssetImage(named: "invisible")
     }
     
-    public static var logoIoasys: UIImage {
-        setupAssetImage(named: "logo_ioasys")
+    public static var logoHome: UIImage {
+        setupAssetImage(named: "logo_home")
     }
     
     public static var redX: UIImage {

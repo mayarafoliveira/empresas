@@ -90,7 +90,10 @@ class SearchView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(
+            UITableViewCell.self,
+            forCellReuseIdentifier: "cell"
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -122,50 +125,94 @@ extension SearchView {
     
     // Header
     func setupBackgroundImageConstraints() {
-        backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        backgroundImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        backgroundImage.heightAnchor.constraint(equalTo: self.heightAnchor,
-                                                multiplier: 1.0/3.5).isActive = true
+        NSLayoutConstraint.activate([
+            backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor),
+            backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),
+            backgroundImage.heightAnchor.constraint(
+                equalTo: self.heightAnchor,
+                multiplier: 1.0/3.5
+            )
+        ])
     }
     
     func setupSearchViewConstraints() {
-        searchView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
-            .isActive = true
-        searchView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16)
-            .isActive = true
-        searchView.topAnchor.constraint(equalTo: self.backgroundImage.bottomAnchor, constant: -24)
-            .isActive = true
-        searchView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        NSLayoutConstraint.activate([
+            searchView.rightAnchor.constraint(
+                equalTo: self.rightAnchor,
+                constant: -16
+            ),
+            searchView.leftAnchor.constraint(
+                equalTo: self.leftAnchor,
+                constant: 16
+            ),
+            searchView.topAnchor.constraint(
+                equalTo: self.backgroundImage.bottomAnchor,
+                constant: -24
+            ),
+            searchView.heightAnchor.constraint(equalToConstant: 48)
+        ])
     }
     
     func setupSearchIconConstraints() {
-        searchIcon.leftAnchor.constraint(equalTo: self.searchView.leftAnchor, constant: 16)
-            .isActive = true
-        searchIcon.topAnchor.constraint(equalTo: self.searchView.topAnchor, constant: 14)
-            .isActive = true
-        searchIcon.bottomAnchor.constraint(equalTo: self.searchView.bottomAnchor, constant: -14)
-            .isActive = true
+        NSLayoutConstraint.activate([
+            searchIcon.leftAnchor.constraint(
+                equalTo: self.searchView.leftAnchor,
+                constant: 16
+            ),
+            searchIcon.topAnchor.constraint(
+                equalTo: self.searchView.topAnchor,
+                constant: 14
+            ),
+            searchIcon.bottomAnchor.constraint(
+                equalTo: self.searchView.bottomAnchor,
+                constant: -14
+            )
+        ])
     }
     
     func setupSearchTextFieldConstraints() {
-        searchTextField.rightAnchor.constraint(equalTo: self.searchView.rightAnchor, constant: -12).isActive = true
-        searchTextField.leftAnchor.constraint(equalTo: self.searchIcon.rightAnchor, constant: 15).isActive = true
-        searchTextField.topAnchor.constraint(equalTo: self.searchView.topAnchor, constant: 5).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: self.searchView.bottomAnchor, constant: -5).isActive = true
+        NSLayoutConstraint.activate([
+            searchTextField.rightAnchor.constraint(
+                equalTo: self.searchView.rightAnchor,
+                constant: -12
+            ),
+            searchTextField.leftAnchor.constraint(
+                equalTo: self.searchIcon.rightAnchor,
+                constant: 15
+            ),
+            searchTextField.topAnchor.constraint(
+                equalTo: self.searchView.topAnchor,
+                constant: 5
+            ),
+            searchTextField.bottomAnchor.constraint(
+                equalTo: self.searchView.bottomAnchor,
+                constant: -5
+            )
+        ])
     }
     
     func setupNoResultsLabelConstraints() {
-        noResultsLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        noResultsLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            noResultsLabel.centerXAnchor.constraint(
+                equalTo: self.centerXAnchor
+            ),
+            noResultsLabel.centerYAnchor.constraint(
+                equalTo: self.centerYAnchor
+            )
+        ])
     }
     
     func setupTableViewConstraints() {
-        
-        self.tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        self.tableView.topAnchor.constraint(equalTo: self.searchView.bottomAnchor, constant: 16).isActive = true
-        self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            self.tableView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            self.tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.tableView.topAnchor.constraint(
+                equalTo: self.searchView.bottomAnchor,
+                constant: 16
+            )
+        ])
     }
 }
 
@@ -190,7 +237,10 @@ extension SearchView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "cell",
+            for: indexPath
+        )
         cell.textLabel?.text = self.enterprises[indexPath.row].enterpriseName
         return cell
     }

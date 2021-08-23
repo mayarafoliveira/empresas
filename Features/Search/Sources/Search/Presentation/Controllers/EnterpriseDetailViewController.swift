@@ -21,8 +21,9 @@ public class EnterpriseDetailViewController: BaseViewController {
     public override func loadView() {
         enterpriseDetailView.delegate = self
         view = enterpriseDetailView
+        self.title = presenter.enterprise.enterpriseName
     }
-
+    
     public init(presenter: EnterpriseDetailPresenting) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -34,10 +35,6 @@ public class EnterpriseDetailViewController: BaseViewController {
     }
 }
 
-extension EnterpriseDetailViewController: EnterpriseDetailViewable {
-    
-}
+extension EnterpriseDetailViewController: EnterpriseDetailViewable {}
 
-extension EnterpriseDetailViewController: EnterpriseDetailDelegate {
-    
-}
+extension EnterpriseDetailViewController: EnterpriseDetailDelegate {}

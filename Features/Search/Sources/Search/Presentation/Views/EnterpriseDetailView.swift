@@ -27,16 +27,6 @@ public class EnterpriseDetailView: UIView {
         return contentView
     }()
     
-    lazy var enterpriseName: UILabel = {
-        let enterpriseName = UILabel()
-        enterpriseName.text = enterprise?.enterpriseName
-        enterpriseName.textAlignment = .center
-        enterpriseName.textColor = .black
-        enterpriseName.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        enterpriseName.translatesAutoresizingMaskIntoConstraints = false
-        return enterpriseName
-    }()
-    
     lazy var backgroundImage: UIImageView = {
         let backgroundImage = UIImageView()
         backgroundImage.contentMode = .scaleAspectFill
@@ -84,7 +74,6 @@ extension EnterpriseDetailView {
     func addSubviews() {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        self.addSubview(enterpriseName)
         self.contentView.addSubview(backgroundImage)
         self.contentView.addSubview(enterpriseDescription)
     }
@@ -93,7 +82,6 @@ extension EnterpriseDetailView {
     func setupConstraints() {
         setupScrollViewConstraints()
         setupContentViewConstraints()
-        setupEnterpriseNameConstraints()
         setupBackgroundImageConstraints()
         setupEnterpriseDescriptionConstraints()
     }
@@ -107,11 +95,10 @@ extension EnterpriseDetailView {
                 equalTo: self.leftAnchor
             ),
             scrollView.topAnchor.constraint(
-                equalTo: self.enterpriseName.bottomAnchor,
-                constant: 5
+                equalTo: self.layoutMarginsGuide.topAnchor
             ),
             scrollView.bottomAnchor.constraint(
-                equalTo: self.bottomAnchor
+                equalTo: self.layoutMarginsGuide.bottomAnchor
             )
         ])
     }
@@ -133,24 +120,6 @@ extension EnterpriseDetailView {
             contentView.widthAnchor.constraint(
                 equalTo: self.scrollView.widthAnchor
             )
-        ])
-    }
-    
-    func setupEnterpriseNameConstraints() {
-        NSLayoutConstraint.activate([
-            enterpriseName.rightAnchor.constraint(
-                equalTo: self.rightAnchor,
-                constant: -20
-            ),
-            enterpriseName.leftAnchor.constraint(
-                equalTo: self.leftAnchor,
-                constant: 20
-            ),
-            enterpriseName.topAnchor.constraint(
-                equalTo: self.topAnchor,
-                constant: 40
-            ),
-            enterpriseName.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     

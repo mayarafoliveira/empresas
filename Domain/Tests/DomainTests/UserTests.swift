@@ -29,6 +29,5 @@ class UserTests: XCTestCase {
     func testInvalidPassword() {
         let passwordValidator = PasswordValidator().validate(password: "54321")
         XCTAssertEqual(passwordValidator, .invalid)
-        
     }
 }

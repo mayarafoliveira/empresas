@@ -6,9 +6,9 @@
 //
 
 import XCTest
+import Domain
 
 @testable import Networking
-@testable import Domain
 
 class LoginTests: XCTestCase {
     
@@ -17,7 +17,7 @@ class LoginTests: XCTestCase {
         var requestError: Error?
         var requestResponse: URLResponse?
         
-        LoginResource().login(order: Login(email: "testeapple@ioasys.com.br", password: "12341234")) {_, response, error in
+        LoginResource().login(order: Login(email: "", password: "")) {_, response, error in
             requestResponse = response
             requestError = error
             

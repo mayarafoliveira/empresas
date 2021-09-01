@@ -14,10 +14,12 @@ class LoginTests: XCTestCase {
     
     func testLogin() {
         let expectation = expectation(description: "app.login.result")
-        var requestError: Error?
         var requestResponse: URLResponse?
+        var requestError: Error?
         
-        LoginResource().login(order: Login(email: "", password: "")) {_, response, error in
+        let loginData = Login(email: "", password: "")
+        
+        LoginResource().login(order: loginData) {_, response, error in
             requestResponse = response
             requestError = error
             

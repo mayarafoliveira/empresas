@@ -15,11 +15,20 @@ let package = Package(
         .package(
             name: "Domain",
             path: "../Domain"
+        ),
+        .package(
+            name: "Common",
+            path: "../Common"
         )
     ],
     targets: [
         .target(
             name: "Networking",
-            dependencies: ["Domain"])
+            dependencies: ["Domain", "Common"]
+        ),
+        .testTarget(
+            name: "NetworkingTests",
+            dependencies: ["Networking"]
+        )
     ]
 )

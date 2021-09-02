@@ -19,7 +19,7 @@ class SignIn {
         let resource: LoginResource = .shared
         
         resource.login(order: loginData) {_, response, error in
-            completion(response != nil, error)
+            completion(response != nil && error == nil, error)
         }
     }
 }

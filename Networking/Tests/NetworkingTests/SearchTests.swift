@@ -13,43 +13,29 @@ import Domain
 
 class SearchTests: XCTestCase {
     
-    private var requestResponse: URLResponse?
-    private var requestError: Error?
-    
     func testSearch() {
         let expectation = expectation(description: "app.search.result")
+        var requestResponse: URLResponse?
+        var requestError: Error?
         
         SignIn().userAuthentication { success, error in
             
-            guard error == nil
-            else {
-                self.fulfill(
-                    expectation: expectation,
-                    response: nil,
-                    error: error
-                )
-                return
-            }
-            
-            SearchResource().searchEnterprise(text: Search(enterpriseSearched: "")) { _, response, error in
-                self.fulfill(
-                    expectation: expectation,
-                    response: response,
-                    error: error
-                )
+            if success {
+                SearchResource().searchEnterprise(text: Search(enterpriseSearched: "")) { _, response, error in
+                    
+                    requestResponse = response
+                    requestError = error
+                    expectation.fulfill()
+                }
+            } else {
+                requestError = error
+                expectation.fulfill()
             }
         }
 
         waitForExpectations(timeout: 30)
         
-        XCTAssertNotNil(self.requestResponse)
-        XCTAssertNil(self.requestError)
-    }
-    
-    func fulfill(expectation: XCTestExpectation, response: URLResponse?, error: Error?) {
-        requestResponse = response
-        requestError = error
-        
-        expectation.fulfill()
+        XCTAssertNotNil(requestResponse)
+        XCTAssertNil(requestError)
     }
 }
